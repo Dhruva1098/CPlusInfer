@@ -5,5 +5,5 @@
 
 int main() {
   printf("Hello World!\n");
-  // some comment
+  // some deleted comment
  }
