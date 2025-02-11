@@ -1,8 +1,8 @@
 //
 // Created by Dhruva Sharma on 6/2/25.
 //
-#include <stdio.h>
+#include <iostream>
 
 int main() {
-  printf("Hello World!\n");
+  std::cout << "Hello World!" << std::endl;
  }
