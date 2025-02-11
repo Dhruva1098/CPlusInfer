@@ -4,12 +4,14 @@
 #define HEADERS_TENSOR_H_
 
 #include <vector>
+#include <stdexcept>
+#include <numeric>
 
 class Tensor {
   // No templates type, will use double throughout
   // Constructor, vector<int>;vector<int>(2)
   explicit Tensor(const std::vector<size_t>& shape);  // Tensor t1({1,1,1}) // all garbage values
-  Tensor(const std::vector<size_t>& shape, double* initialValue);  // Tensor t1({1,1,1}, 40})
+  Tensor(const std::vector<size_t>& shape, double initialValue);  // Tensor t1({1,1,1}, 40})
 
   // destructor
   ~Tensor();
@@ -29,8 +31,8 @@ class Tensor {
   Tensor operator+(const Tensor& other) const;  // t1 + t2 == t1(operator+(t2))
 
  private:
-    std::vector<size_t> _shape;
-    std::vector<double> _data;
+    std::vector<size_t> shape_;
+    std::vector<double> data_;
     size_t computeIndex(const std::vector<size_t>& indices) const;
     bool checkShapeCompatibility(const Tensor& other) const;
 };
