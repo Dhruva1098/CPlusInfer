@@ -48,7 +48,56 @@ const double& Tensor::operator()(const std::vector<size_t>& indices) const {
   return data_[computeIndex(indices)];
 }
 
+//Operator overloading
+// + : Element wise
+Tensor Tensor::operator+(const Tensor& other) const {
+  if (!checkShapeCompatibility(other)) {
+    throw std::invalid_argument("Tensors must have the same shape for addition.");
+  }
+  Tensor result(shape_);  // Create a new tensor with the same shape
+  for (size_t i = 0; i < data_.size(); i++) {
+    result.data_[i] = this->data_[i] + other.data_[i];  // Element-wise addition
+  }
+  return result;
+}
 
+Tensor Tensor::operator-(const Tensor& other) const {
+  if (!checkShapeCompatibility(other)) {
+    throw std::invalid_argument("Tensors must have the same shape for subtraction.");
+  }
+  Tensor result(shape_);  //shape of the object that called the function
+  for(size_t i = 0; i < data_.size(); i++) {
+    result.data_[i] = this->data_[i] - other.data_[i];
+  }
+  return result;
+}
+
+Tensor Tensor::operator*(const Tensor& other) const {
+  if(!checkShapeCompatibility(other)) {
+    throw std::invalid_argument("Tensors must have the same shape for scalar multiplication.");
+  }
+  Tensor result(shape_);
+  for(size_t i = 0; i < data_.size(); i++) {
+    result.data_[i] = this->data_[i] * other.data_[i];
+  }
+  return result;
+}
+Tensor Tensor::operator/(const Tensor& other) const {
+  if (!checkShapeCompatibility(other)) {
+    throw std::invalid_argument("Tensors must have the same shape for addition.");
+  }
+  Tensor result(shape_);  // Create a new tensor with the same shape
+  for (size_t i = 0; i < data_.size(); i++) {
+    if(other.data_[i] == 0) {
+      throw std::invalid_argument("Division by zero.");
+    }
+    result.data_[i] = this->data_[i] / other.data_[i];  // Element-wise addition
+  }
+  return result;
+}
+//function to do matrix multipliacaiton {
+//  //WE NEED TO FETCH DIMENSION AND CHECK IF SAME COL! AND ROW 2
+//
 
 
 

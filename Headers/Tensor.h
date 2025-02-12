@@ -28,6 +28,9 @@ class Tensor {
   const double& operator()(const std::vector<size_t>& indices) const;
   // op overload +, -, /, *
   Tensor operator+(const Tensor& other) const;  // t1 + t2 == t1(operator+(t2))
+  Tensor operator-(const Tensor& other) const;
+  Tensor operator*(const Tensor& other) const;
+  Tensor operator/(const Tensor& other) const;
 
  private:
     std::vector<size_t> shape_;
