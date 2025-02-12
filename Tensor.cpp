@@ -95,7 +95,7 @@ Tensor Tensor::operator/(const Tensor& other) const {
   }
   return result;
 }
-//function to do matrix multipliacaiton {
+//function to do matrix multipliacaiton canges by jyoti {
 //  //WE NEED TO FETCH DIMENSION AND CHECK IF SAME COL! AND ROW 2
 //
 
