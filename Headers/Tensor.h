@@ -8,6 +8,7 @@
 #include <numeric>
 
 class Tensor {
+    public:
 
   explicit Tensor(const std::vector<size_t>& shape);  // Tensor t1({1,1,1}) // all garbage values
   Tensor(const std::vector<size_t>& shape, double initialValue);  // Tensor t1({1,1,1}, 40})
@@ -32,6 +33,8 @@ class Tensor {
   Tensor operator*(const Tensor& other) const;
   Tensor operator/(const Tensor& other) const;
 
+  // ReLU
+  Tensor reLU(const Tensor& other) const;
  private:
     std::vector<size_t> shape_;
     std::vector<double> data_;

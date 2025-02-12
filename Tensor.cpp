@@ -1,8 +1,8 @@
-#include "Headers/tensor.h"
+#include "Headers/Tensor.h"
 
 // Constructor
 Tensor::Tensor(const std::vector<size_t>& shape)
-    : shape_(shape), data_(std::accumulate(shape.begin(), shape.end(), 1, std::multiplies<size_t>())) {}
+    :shape_( shape), data_(std::accumulate(shape.begin(), shape.end(), 1, std::multiplies<size_t>())) {}
 
 // Constructor with initial value
 Tensor::Tensor(const std::vector<size_t> &shape, double initialValue)
@@ -95,11 +95,18 @@ Tensor Tensor::operator/(const Tensor& other) const {
   }
   return result;
 }
-//function to do matrix multipliacaiton {
+//function to do matrix multiplication CHecking changes{
 //  //WE NEED TO FETCH DIMENSION AND CHECK IF SAME COL! AND ROW 2
 //
 
-
+Tensor Tensor::reLU(const Tensor& other) const {
+  Tensor out = other;
+  for (size_t i = 0; i < data_.size(); i++) {
+    if(other.data_[i] <= 0) {
+      out.data_[i] = 0;
+    }
+  } return out;
+ }
 
 // Helper functions
 // Use this to check if two tensors are compatible for operations
