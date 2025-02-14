@@ -8,5 +8,8 @@
 
 
 int main() {
-
- }
+    std::vector<int> dims ={1,2,2};
+    for (auto it: dims) {
+        std::cout << it << std::endl;
+    }
+ } 
