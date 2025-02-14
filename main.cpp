@@ -3,8 +3,8 @@
 //
 #include <iostream>
 #include <vector>
+#include "headers/Tensor.h"
 #include "Tensor.cpp"
-#include "Headers/Tensor.h"
 
 
 int main() {
@@ -107,7 +107,5 @@ int main() {
     Tensor<int> t17 = t16.transpose();
     std::cout << "t17 (Transpose of t16):" << std::endl;
     t17.print();
-
-
     return 0;
 }
