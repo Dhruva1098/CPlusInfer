@@ -53,9 +53,12 @@ public:
     // Transpose
     Tensor transpose() const;
 
+    // Print
+    void print() const;
+
 private:
     std::vector<size_t> shape_;
-    std::vector<double> data_;
+    std::vector<T> data_;
     size_t computeIndex(const std::vector<size_t>& indices) const;
     bool checkShapeCompatibility(const Tensor& other) const;
 };
