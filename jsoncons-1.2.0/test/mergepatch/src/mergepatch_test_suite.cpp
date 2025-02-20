@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <iostream>
 
@@ -83,8 +83,8 @@ TEST_CASE("mergepatch tests")
 {
     SECTION("compliance")
     {
-        json_merge_patch_tests("./mergepatch/input/compliance/rfc7396-test-cases.json");
-        //json_merge_patch_tests("./mergepatch/input/compliance/test.json");
+        json_merge_patch_tests("./mergepatch/input/compliance/rfc7396-nlhomann_json-cases.json");
+        //json_merge_patch_tests("./mergepatch/input/compliance/nlhomann_json.json");
     }
 }
 

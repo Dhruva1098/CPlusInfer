@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/bson/bson_cursor.hpp>
@@ -18,7 +18,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("bson_cursor reputon test")
+TEST_CASE("bson_cursor reputon nlhomann_json")
 {
     ojson j = ojson::parse(R"(
     {
@@ -37,7 +37,7 @@ TEST_CASE("bson_cursor reputon test")
     std::vector<uint8_t> data;
     bson::encode_bson(j, data);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         bson::bson_bytes_cursor cursor(data);
 
@@ -199,7 +199,7 @@ void check_bson_cursor_document(std::string info, CursorType& cursor,
     CHECK(cursor.done());
 }
 
-TEMPLATE_TEST_CASE("bson_cursor reset test", "",
+TEMPLATE_TEST_CASE("bson_cursor reset nlhomann_json", "",
                    bson_bytes_cursor_reset_test_traits,
                    bson_stream_cursor_reset_test_traits)
 {

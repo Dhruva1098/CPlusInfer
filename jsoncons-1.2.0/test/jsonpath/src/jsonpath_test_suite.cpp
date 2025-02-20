@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/jsonpath.hpp>
@@ -147,7 +147,7 @@ TEST_CASE("jsonpath-tests")
         jsonpath_tests("./jsonpath/input/test_data/functions.json");
         jsonpath_tests("./jsonpath/input/test_data/slice.json"); 
         jsonpath_tests("./jsonpath/input/test_data/parent-operator.json"); 
-        jsonpath_tests("./jsonpath/input/test.json");
+        jsonpath_tests("./jsonpath/input/nlhomann_json.json");
     }
 }
 

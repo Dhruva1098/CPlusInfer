@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpointer/jsonpointer.hpp>
@@ -356,10 +356,10 @@ TEST_CASE("[jsonpointer] Inserting object after deleting it")
 
     std::error_code ec;
 
-    jsonpointer::add( oj, "/test", ojson(), ec );
+    jsonpointer::add( oj, "/nlhomann_json", ojson(), ec );
     CHECK(oj.size() == 1);
 
-    jsonpointer::remove( oj, "/test", ec );
+    jsonpointer::remove( oj, "/nlhomann_json", ec );
     CHECK(oj.size() == 0);
 
     jsonpointer::add( oj, "/t", ojson(), ec );

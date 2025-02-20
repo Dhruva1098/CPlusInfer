@@ -12,7 +12,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("test json_options max_nesting_depth")
+TEST_CASE("nlhomann_json json_options max_nesting_depth")
 {
     std::string str = R"(
 {
@@ -50,7 +50,7 @@ TEST_CASE("test_default_nan_replacement")
     CHECK(os.str() == expected);
 }
 
-TEST_CASE("test inf_to_num")
+TEST_CASE("nlhomann_json inf_to_num")
 {
     json j;
     j["field1"] = std::sqrt(-1.0);
@@ -70,7 +70,7 @@ TEST_CASE("test inf_to_num")
     }
 }
 
-TEST_CASE("object: nan_to_str, inf_to_str, neginf_to_str test")
+TEST_CASE("object: nan_to_str, inf_to_str, neginf_to_str nlhomann_json")
 {
     json j;
     j["field1"] = std::sqrt(-1.0);
@@ -109,7 +109,7 @@ TEST_CASE("object: nan_to_str, inf_to_str, neginf_to_str test")
     }
 }
 
-TEST_CASE("array: nan_to_str, inf_to_str, neginf_to_str test")
+TEST_CASE("array: nan_to_str, inf_to_str, neginf_to_str nlhomann_json")
 {
     json j(json_array_arg);
     j.push_back(std::sqrt(-1.0));

@@ -14,7 +14,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("issue 355 test")
+TEST_CASE("issue 355 nlhomann_json")
 {
     jsoncons::json someObject;
     jsoncons::json::array someArray(4);

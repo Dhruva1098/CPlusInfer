@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/cbor/cbor.hpp>
@@ -12,7 +12,7 @@
 
 using namespace jsoncons;
 
-// test vectors from tinycbor https://github.com/01org/tinycbor tst_encoder.cpp
+// nlhomann_json vectors from tinycbor https://github.com/01org/tinycbor tst_encoder.cpp
 // MIT license
 
 void check_encode_cbor(const std::vector<uint8_t>& expected, const json& j)

@@ -311,7 +311,7 @@ TEST_CASE("uri resolve tests")
 
 TEST_CASE("uri part decode tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string raw = "%7e";
         std::string expected = "~";
@@ -319,7 +319,7 @@ TEST_CASE("uri part decode tests")
         std::string decoded = jsoncons::uri::decode_part(raw);
         CHECK(decoded == expected);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string raw = "%25";
         std::string expected = "%";
@@ -327,7 +327,7 @@ TEST_CASE("uri part decode tests")
         std::string decoded = jsoncons::uri::decode_part(raw);
         CHECK(decoded == expected);
     }
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         std::string raw = "foo%25bar%7ebaz";
         std::string expected = "foo%bar~baz";
@@ -339,7 +339,7 @@ TEST_CASE("uri part decode tests")
 
 TEST_CASE("uri part encode tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string part = "/@_-!.~'()*azAZ09,;:$&+=%3F%ae";
         std::string expected = part;
@@ -349,7 +349,7 @@ TEST_CASE("uri part encode tests")
         CHECK(encoded == expected);
     }
     
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string part = "%?/[]@,;:$&+=";
         std::string expected = "%25%3F/%5B%5D@,;:$&+=";
@@ -362,7 +362,7 @@ TEST_CASE("uri part encode tests")
 
 TEST_CASE("uri part encode illegal characters tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string part = "_-!.~'()*azAZ09?/[]@,;:$&+=%3F%ae";
         std::string expected = part;
@@ -375,7 +375,7 @@ TEST_CASE("uri part encode illegal characters tests")
 
 TEST_CASE("uri constructors")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsoncons::uri x{"http://localhost:4242/draft2019-09/recursiveRef6/base.json"};
 

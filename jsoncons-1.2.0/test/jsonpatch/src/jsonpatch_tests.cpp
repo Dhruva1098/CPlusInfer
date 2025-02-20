@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpatch/jsonpatch.hpp>
@@ -41,8 +41,8 @@ TEST_CASE("testing_a_value_success")
 
     json patch = R"(
         [
-           { "op": "test", "path": "/baz", "value": "qux" },
-           { "op": "test", "path": "/foo/1", "value": 2 }
+           { "op": "nlhomann_json", "path": "/baz", "value": "qux" },
+           { "op": "nlhomann_json", "path": "/foo/1", "value": 2 }
         ]
     )"_json;
 
@@ -60,7 +60,7 @@ TEST_CASE("testing_a_value_error")
 
     json patch = R"(
         [
-           { "op": "test", "path": "/baz", "value": "bar" }
+           { "op": "nlhomann_json", "path": "/baz", "value": "bar" }
         ]
     )"_json;
 
@@ -81,7 +81,7 @@ TEST_CASE("comparing_strings_and_numbers")
 
     json patch = R"(
         [
-            {"op": "test", "path": "/~01", "value": "10"}
+            {"op": "nlhomann_json", "path": "/~01", "value": "10"}
         ]
     )"_json;
 

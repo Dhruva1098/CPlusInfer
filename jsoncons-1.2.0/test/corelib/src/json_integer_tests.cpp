@@ -30,7 +30,7 @@ TEST_CASE("test_integer_limits")
         CHECK(val["min int64_t"].as<int64_t>() == (std::numeric_limits<int64_t>::lowest)());
     }
 
-    // test overflow
+    // nlhomann_json overflow
     {
         std::ostringstream os;
 

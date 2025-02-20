@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <catch/catch.hpp>
 #include <sstream>
@@ -1109,7 +1109,7 @@ using namespace jsoncons;
 
 TEST_CASE("JSONCONS_N_GETTER_SETTER_NAME_TRAITS transform tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint64_t> ids = {1,2};
 
@@ -1131,7 +1131,7 @@ TEST_CASE("JSONCONS_N_GETTER_SETTER_NAME_TRAITS transform tests")
 
 TEST_CASE("JSONCONS_ALL_GETTER_SETTER_NAME_TRAITS transform tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint64_t> ids = {1,2};
         
@@ -1153,7 +1153,7 @@ TEST_CASE("JSONCONS_ALL_GETTER_SETTER_NAME_TRAITS transform tests")
 
 TEST_CASE("JSONCONS_N_CTOR_GETTER_NAME_TRAITS transform tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<ns::Employee_NCGN> employees = {ns::Employee_NCGN("John", "Smith"), ns::Employee_NCGN("Jane", "Doe")};    
 
@@ -1167,7 +1167,7 @@ TEST_CASE("JSONCONS_N_CTOR_GETTER_NAME_TRAITS transform tests")
         auto j = decode_json<json>(output2);
         CHECK(j.is<std::vector<ns::Employee_NCGN>>());
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::vector<uint64_t> ids = {1,2};
 
@@ -1189,7 +1189,7 @@ TEST_CASE("JSONCONS_N_CTOR_GETTER_NAME_TRAITS transform tests")
 
 TEST_CASE("JSONCONS_ALL_CTOR_GETTER_NAME_TRAITS transform tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint64_t> ids = {1,2};
         
@@ -1211,7 +1211,7 @@ TEST_CASE("JSONCONS_ALL_CTOR_GETTER_NAME_TRAITS transform tests")
 
 TEST_CASE("JSONCONS_N_MEMBER_NAME_TRAITS transform tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint64_t> ids = {1,2};
 
@@ -1233,7 +1233,7 @@ TEST_CASE("JSONCONS_N_MEMBER_NAME_TRAITS transform tests")
 
 TEST_CASE("JSONCONS_ALL_MEMBER_NAME_TRAITS transform tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint64_t> ids = {1,2};
         
@@ -1256,7 +1256,7 @@ TEST_CASE("JSONCONS_ALL_MEMBER_NAME_TRAITS transform tests")
 #if defined(JSONCONS_HAS_STD_REGEX)
 TEST_CASE("JSONCONS_N_CTOR_GETTER_NAME_TRAITS validation tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<ns::Person_NCGN> persons = {ns::Person_NCGN("John Smith", "123456789"), ns::Person_NCGN("Jane Doe", "234567890")};    
 
@@ -1309,7 +1309,7 @@ TEST_CASE("JSONCONS_ALL_CTOR_GETTER_NAME_TRAITS polymorphic and variant tests")
 ]
     )";
 
-    SECTION("polymorphic test")
+    SECTION("polymorphic nlhomann_json")
     {
         auto shapes = decode_json<std::vector<std::unique_ptr<ns::Shape_ACGN>>>(input);
         REQUIRE(shapes.size() == 3);
@@ -1334,7 +1334,7 @@ TEST_CASE("JSONCONS_ALL_CTOR_GETTER_NAME_TRAITS polymorphic and variant tests")
     }
 
 #if defined(JSONCONS_HAS_STD_VARIANT)
-    SECTION("variant test")
+    SECTION("variant nlhomann_json")
     {
         using shapes_t = std::variant<ns::Rectangle_ACGN,ns::Triangle_ACGN,ns::Circle_ACGN>;
         auto shapes = decode_json<std::vector<shapes_t>>(input);
@@ -1372,7 +1372,7 @@ TEST_CASE("JSONCONS_ALL_GETTER_SETTER_NAME_TRAITS polymorphic and variant tests"
 ]
     )";
 
-    SECTION("polymorphic test")
+    SECTION("polymorphic nlhomann_json")
     {
         auto shapes = decode_json<std::vector<std::unique_ptr<ns::Shape_AGSN>>>(input);
         REQUIRE(shapes.size() == 3);
@@ -1397,7 +1397,7 @@ TEST_CASE("JSONCONS_ALL_GETTER_SETTER_NAME_TRAITS polymorphic and variant tests"
     }
 
 #if defined(JSONCONS_HAS_STD_VARIANT)
-    SECTION("variant test")
+    SECTION("variant nlhomann_json")
     {
         using shapes_t = std::variant<ns::Rectangle_AGSN,ns::Triangle_AGSN,ns::Circle_AGSN>;
         auto shapes = decode_json<std::vector<shapes_t>>(input);
@@ -1435,7 +1435,7 @@ TEST_CASE("JSONCONS_N_GETTER_SETTER_NAME_TRAITS polymorphic and variant tests")
 ]
     )";
 
-    SECTION("polymorphic test")
+    SECTION("polymorphic nlhomann_json")
     {
         auto shapes = decode_json<std::vector<std::unique_ptr<ns::Shape_NGSN>>>(input);
         REQUIRE(shapes.size() == 3);
@@ -1460,7 +1460,7 @@ TEST_CASE("JSONCONS_N_GETTER_SETTER_NAME_TRAITS polymorphic and variant tests")
     }
 
 #if defined(JSONCONS_HAS_STD_VARIANT)
-    SECTION("variant test")
+    SECTION("variant nlhomann_json")
     {
         using shapes_t = std::variant<ns::Rectangle_NGSN,ns::Triangle_NGSN,ns::Circle_NGSN>;
         auto shapes = decode_json<std::vector<shapes_t>>(input);
@@ -1498,7 +1498,7 @@ TEST_CASE("JSONCONS_ALL_MEMBER_NAME_TRAITS polymorphic and variant tests")
 ]
     )";
 
-    SECTION("polymorphic test")
+    SECTION("polymorphic nlhomann_json")
     {
         auto shapes = decode_json<std::vector<std::unique_ptr<ns::Shape_AMN>>>(input);
         REQUIRE(shapes.size() == 3);
@@ -1523,7 +1523,7 @@ TEST_CASE("JSONCONS_ALL_MEMBER_NAME_TRAITS polymorphic and variant tests")
     }
 
 #if defined(JSONCONS_HAS_STD_VARIANT)
-    SECTION("variant test")
+    SECTION("variant nlhomann_json")
     {
         using shapes_t = std::variant<ns::Rectangle_AMN,ns::Triangle_AMN,ns::Circle_AMN>;
         auto shapes = decode_json<std::vector<shapes_t>>(input);
@@ -1561,7 +1561,7 @@ TEST_CASE("JSONCONS_N_MEMBER_NAME_TRAITS polymorphic and variant tests")
 ]
     )";
 
-    SECTION("polymorphic test")
+    SECTION("polymorphic nlhomann_json")
     {
         auto shapes = decode_json<std::vector<std::unique_ptr<ns::Shape_NMN>>>(input);
         REQUIRE(shapes.size() == 3);
@@ -1586,7 +1586,7 @@ TEST_CASE("JSONCONS_N_MEMBER_NAME_TRAITS polymorphic and variant tests")
     }
 
 #if defined(JSONCONS_HAS_STD_VARIANT)
-    SECTION("variant test")
+    SECTION("variant nlhomann_json")
     {
         using shapes_t = std::variant<ns::Rectangle_NMN,ns::Triangle_NMN,ns::Circle_NMN>;
         auto shapes = decode_json<std::vector<shapes_t>>(input);

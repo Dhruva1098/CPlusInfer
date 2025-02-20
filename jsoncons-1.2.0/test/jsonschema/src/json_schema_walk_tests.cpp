@@ -130,12 +130,12 @@ TEST_CASE("jsonschema walk tests")
     }
 } 
 
-TEST_CASE("jsonschema with $dynamicRef walk test")
+TEST_CASE("jsonschema with $dynamicRef walk nlhomann_json")
 {
     std::string schema_str = R"(
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
+    "$id": "https://nlhomann_json.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
     "if": {
         "$id": "first_scope",
         "$defs": {
@@ -217,7 +217,7 @@ TEST_CASE("jsonschema with $dynamicRef walk test")
     }
 }
 
-TEST_CASE("jsonschema walk keyword test")
+TEST_CASE("jsonschema walk keyword nlhomann_json")
 {
     SECTION("prefixItems")
     {

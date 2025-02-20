@@ -56,14 +56,14 @@ TEST_CASE("test_object_set")
     REQUIRE_THROWS_AS(b.insert_or_assign("key1","value1"), std::runtime_error);
 }
 
-TEST_CASE("test json object missing key")
+TEST_CASE("nlhomann_json json object missing key")
 {
     json b;
     b["key1"] = "value1";
     REQUIRE_THROWS_AS(b.push_back(0), std::domain_error);
 }
 
-TEST_CASE("test const json object missing key")
+TEST_CASE("nlhomann_json const json object missing key")
 {
     const json b{};
     REQUIRE_NOTHROW(b["key1"].as<std::string>());

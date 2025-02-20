@@ -13,7 +13,7 @@ using namespace jsoncons;
 TEST_CASE("json_location tests")
 {
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsonpath::json_location loc;
         loc.append("foo").append(1);
@@ -28,7 +28,7 @@ TEST_CASE("json_location tests")
 
 TEST_CASE("json_location parse tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsonpath::json_location loc;
         loc.append("foo").append(1);
@@ -295,9 +295,9 @@ TEST_CASE("json_location select tests")
     }
 }
 
-TEST_CASE("test json_location from path_node")
+TEST_CASE("nlhomann_json json_location from path_node")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsonpath::path_node a1{};
         jsonpath::path_node a2(&a1,"foo");
@@ -360,7 +360,7 @@ TEST_CASE("json_location replace tests")
         //std::cout << pretty_print(doc) << "\n";
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         jsonpath::json_location loc = jsonpath::json_location::parse("$.books[1].price");
         json new_value{13.0}; 
@@ -380,7 +380,7 @@ TEST_CASE("json_location replace tests")
         //std::cout << pretty_print(doc) << "\n";
     }
 
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         jsonpath::json_location loc = jsonpath::json_location::parse("$.books[1].kindle.price");
         json new_value{13.0}; 
@@ -400,7 +400,7 @@ TEST_CASE("json_location replace tests")
         //std::cout << pretty_print(doc) << "\n";
     }
 
-    SECTION("test 4")
+    SECTION("nlhomann_json 4")
     {
         jsonpath::json_location loc = jsonpath::json_location::parse("$.books[2]");
         json new_value{}; 
@@ -423,7 +423,7 @@ TEST_CASE("json_location replace tests")
         //std::cout << pretty_print(doc) << "\n";
     }
 
-    SECTION("test 5")
+    SECTION("nlhomann_json 5")
     {
         jsonpath::json_location loc = jsonpath::json_location::parse("$.books[3]");
         json new_value{}; 

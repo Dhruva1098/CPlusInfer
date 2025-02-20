@@ -177,7 +177,7 @@ TEST_CASE("json validator tests")
     ]
     )";
 
-    SECTION("employee_AMN test")
+    SECTION("employee_AMN nlhomann_json")
     {
         jsoncons::json_string_cursor cursor(input);
 
@@ -196,7 +196,7 @@ TEST_CASE("json validator tests")
         }
     }
 
-    SECTION("employee_NMN test")
+    SECTION("employee_NMN nlhomann_json")
     {
         jsoncons::json_string_cursor cursor(input);
 
@@ -215,7 +215,7 @@ TEST_CASE("json validator tests")
         }
     }
 
-    SECTION("employee_ACGN test")
+    SECTION("employee_ACGN nlhomann_json")
     {
         jsoncons::json_string_cursor cursor(input);
 
@@ -234,7 +234,7 @@ TEST_CASE("json validator tests")
         }
     }
 
-    SECTION("employee_NCGN test")
+    SECTION("employee_NCGN nlhomann_json")
     {
         jsoncons::json_string_cursor cursor(input);
 
@@ -253,7 +253,7 @@ TEST_CASE("json validator tests")
         }
     }
 
-    SECTION("employee_AGSN test")
+    SECTION("employee_AGSN nlhomann_json")
     {
         jsoncons::json_string_cursor cursor(input);
 
@@ -272,7 +272,7 @@ TEST_CASE("json validator tests")
         }
     }
 
-    SECTION("employee_NGSN test")
+    SECTION("employee_NGSN nlhomann_json")
     {
         jsoncons::json_string_cursor cursor(input);
 

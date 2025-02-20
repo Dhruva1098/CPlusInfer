@@ -7,7 +7,7 @@
 
 TEST_CASE("string_view tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::unordered_map<jsoncons::detail::string_view,int> map;
 

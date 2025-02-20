@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/jsonpath.hpp>
@@ -54,7 +54,7 @@ TEST_CASE("jsonpath make_expression::evaluate tests")
     }
     )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         int count = 0;
 
@@ -168,7 +168,7 @@ TEST_CASE("jsonpath_expression::select tests")
     }
     )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         int count = 0;
 
@@ -447,7 +447,7 @@ TEST_CASE("jsonpath_expression remove")
     }
     )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto doc = jsoncons::json::parse(input);
 

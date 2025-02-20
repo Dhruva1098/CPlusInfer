@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/jsonpath.hpp>
@@ -22,7 +22,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("jsonpath.jsonpath select_paths test")
+TEST_CASE("jsonpath.jsonpath select_paths nlhomann_json")
 {
 
     std::string json_string = R"(
@@ -51,7 +51,7 @@ TEST_CASE("jsonpath.jsonpath select_paths test")
 
     json doc = json::parse(json_string);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto expr = jsonpath::make_expression<json>("$..book[?(@.category == 'fiction')].title");
         auto result = expr.select_paths(doc);

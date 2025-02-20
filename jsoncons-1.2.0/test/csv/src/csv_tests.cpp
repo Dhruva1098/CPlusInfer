@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/csv/csv.hpp>
@@ -227,7 +227,7 @@ TEST_CASE("csv_test_empty_values")
 {
     std::string input = "bool-f,int-f,float-f,string-f"
 "\n,,,,"
-"\ntrue,12,24.7,\"test string\","
+"\ntrue,12,24.7,\"nlhomann_json string\","
 "\n,,,,";
 
     std::istringstream is(input);
@@ -257,7 +257,7 @@ TEST_CASE("csv_test_empty_values")
     CHECK(val[1]["int-f"].is<int>());
     CHECK(val[1]["float-f"] .as<double>()== 24.7);
     CHECK(val[1]["float-f"].is<double>());
-    CHECK(val[1]["string-f"].as<std::string>() == "test string");
+    CHECK(val[1]["string-f"].as<std::string>() == "nlhomann_json string");
     CHECK(val[1]["string-f"].is<std::string>());
 
     CHECK(val[0]["bool-f"].is_null());
@@ -274,7 +274,7 @@ TEST_CASE("csv_test_empty_values_with_defaults")
 {
     std::string input = "bool-f,int-f,float-f,string-f"
 "\n,,,,"
-"\ntrue,12,24.7,\"test string\","
+"\ntrue,12,24.7,\"nlhomann_json string\","
 "\n,,,,";
 
     std::istringstream is(input);
@@ -307,7 +307,7 @@ TEST_CASE("csv_test_empty_values_with_defaults")
     CHECK(val[1]["int-f"].is<int>());
     CHECK(val[1]["float-f"] .as<double>()== 24.7);
     CHECK(val[1]["float-f"].is<double>());
-    CHECK(val[1]["string-f"].as<std::string>() == "test string");
+    CHECK(val[1]["string-f"].as<std::string>() == "nlhomann_json string");
     CHECK(val[1]["string-f"].is<std::string>());
 
     CHECK(val[2]["bool-f"].as<bool>() == false);
@@ -324,7 +324,7 @@ TEST_CASE("csv_test_empty_values_with_empty_defaults")
 {
     std::string input = "bool-f,int-f,float-f,string-f"
 "\n,,,,"
-"\ntrue,12,24.7,\"test string\","
+"\ntrue,12,24.7,\"nlhomann_json string\","
 "\n,,,,";
 
     std::istringstream is(input);
@@ -355,7 +355,7 @@ TEST_CASE("csv_test_empty_values_with_empty_defaults")
     CHECK(val[1]["int-f"].is<int>());
     CHECK(val[1]["float-f"] .as<double>()== 24.7);
     CHECK(val[1]["float-f"].is<double>());
-    CHECK(val[1]["string-f"].as<std::string>() == "test string");
+    CHECK(val[1]["string-f"].as<std::string>() == "nlhomann_json string");
     CHECK(val[1]["string-f"].is<std::string>());
 
     CHECK(val[0]["bool-f"].is_null());
@@ -1334,7 +1334,7 @@ TEST_CASE("Test decode_csv, no terminating newline")
     }
 }
 
-TEST_CASE("test encode_csv")
+TEST_CASE("nlhomann_json encode_csv")
 {
     json j(json_array_arg);
     j.push_back(json(json_object_arg, { {"a",1},{"b",2} }));
@@ -1574,7 +1574,7 @@ TEST_CASE("infinite loop")
 TEST_CASE("csv_parser number detection")
 {
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string data = R"(Number
 5001173100
@@ -1597,7 +1597,7 @@ TEST_CASE("csv_parser number detection")
         CHECK(std::numeric_limits<double>::infinity() == csv[5].at("Number").as<double>()); // infinite
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string data = R"(Number
 5001173100

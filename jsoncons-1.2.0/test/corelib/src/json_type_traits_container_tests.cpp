@@ -387,7 +387,7 @@ TEST_CASE("own_vector json_type_traits")
 
 TEST_CASE("map with integer key")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::map<uint32_t, int> val{ {1,1,},{2,2} };
 
@@ -478,7 +478,7 @@ JSONCONS_ENUM_NAME_TRAITS(ns::MyCriterionType,(First,"first"),(MessageType,"mess
 
 TEST_CASE("map with enum key")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         ns::TCriterion<ns::MyCriterionType> criterion(ns::MyCriterionType::MessageType,"foo");
 
@@ -491,7 +491,7 @@ TEST_CASE("map with enum key")
         CHECK(val.getValue() == std::string("foo"));
         CHECK(val.getType() == ns::MyCriterionType::MessageType);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         ns::TCriterion<ns::MyCriterionType> criterion(ns::MyCriterionType::MessageType, "foo");
             

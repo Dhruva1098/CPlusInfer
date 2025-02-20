@@ -172,7 +172,7 @@ namespace {
 
 TEST_CASE("json_parser position")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string input1 = R"(
           {

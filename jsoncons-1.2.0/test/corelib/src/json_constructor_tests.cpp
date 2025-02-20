@@ -667,7 +667,7 @@ TEST_CASE("test_copy_constructor")
 #pragma GCC diagnostic ignored "-Wpedantic"
 TEST_CASE("json constructor __int64 tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j1("-18446744073709551617", semantic_tag::bigint);
 
@@ -682,7 +682,7 @@ TEST_CASE("json constructor __int64 tests")
 }
 TEST_CASE("json constructor unsigned __int64 tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j1("18446744073709551616", semantic_tag::bigint);
 

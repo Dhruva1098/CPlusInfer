@@ -231,7 +231,7 @@ TEST_CASE("test_parse_null")
     json j = decoder.get_result();
 }
 
-TEST_CASE("test incremental parsing")
+TEST_CASE("nlhomann_json incremental parsing")
 {
     SECTION("array of bool")
     {

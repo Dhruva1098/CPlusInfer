@@ -23,7 +23,7 @@ TEST_CASE("string_source tests")
     std::string data = "012345678";
     jsoncons::string_source<char> source(data);
 
-    SECTION("test get and peek")
+    SECTION("nlhomann_json get and peek")
     {
         char b;
 
@@ -100,7 +100,7 @@ TEST_CASE("byte_source tests")
     std::string data = "012345678";
     jsoncons::bytes_source source(data);
 
-    SECTION("test get and peek")
+    SECTION("nlhomann_json get and peek")
     {
         uint8_t b;
 
@@ -178,7 +178,7 @@ TEST_CASE("stream_source tests")
     std::istringstream is(data);
     jsoncons::stream_source<char> source(is);
 
-    SECTION("test get and peek")
+    SECTION("nlhomann_json get and peek")
     {
         char b;
 

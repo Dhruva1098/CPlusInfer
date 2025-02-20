@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <jsoncons/json.hpp>
 #include <jsoncons/json_encoder.hpp>
@@ -16,9 +16,9 @@
 using namespace jsoncons;
 
 #if 0
-TEST_CASE("json_cursor eof test")
+TEST_CASE("json_cursor eof nlhomann_json")
 {
-    SECTION("string source eof test")
+    SECTION("string source eof nlhomann_json")
     {
         std::string data = "";
 
@@ -26,7 +26,7 @@ TEST_CASE("json_cursor eof test")
         json_string_cursor cursor(data, ec);
         CHECK(cursor.eof());
     }
-    SECTION("stream source eof test")
+    SECTION("stream source eof nlhomann_json")
     {
         std::string data = "";
         std::istringstream is(data);
@@ -35,7 +35,7 @@ TEST_CASE("json_cursor eof test")
         json_stream_cursor cursor(is, ec);
         CHECK(cursor.eof());
     }
-    SECTION("null stream source eof test")
+    SECTION("null stream source eof nlhomann_json")
     {   
         std::string data = "";
 
@@ -45,7 +45,7 @@ TEST_CASE("json_cursor eof test")
     }
 }
 
-TEST_CASE("json_cursor string_value test")
+TEST_CASE("json_cursor string_value nlhomann_json")
 {
     std::string s = R"("Tom")";
     std::istringstream is(s);
@@ -53,7 +53,7 @@ TEST_CASE("json_cursor string_value test")
     json_stream_cursor cursor(is);
     REQUIRE_FALSE(cursor.done());
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         CHECK(cursor.current().event_type() == staj_event_type::string_value);
         CHECK(cursor.current().get<std::string>() == std::string("Tom"));
@@ -63,7 +63,7 @@ TEST_CASE("json_cursor string_value test")
     }
 }
 
-TEST_CASE("json_cursor string_value as<int> test")
+TEST_CASE("json_cursor string_value as<int> nlhomann_json")
 {
     std::string s = R"("-100")";
     std::istringstream is(s);
@@ -77,7 +77,7 @@ TEST_CASE("json_cursor string_value as<int> test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor string_value as<unsigned> test")
+TEST_CASE("json_cursor string_value as<unsigned> nlhomann_json")
 {
     std::string s = R"("100")";
     std::istringstream is(s);
@@ -92,7 +92,7 @@ TEST_CASE("json_cursor string_value as<unsigned> test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor null_value test")
+TEST_CASE("json_cursor null_value nlhomann_json")
 {
     std::string s = "null";
     std::istringstream is(s);
@@ -105,7 +105,7 @@ TEST_CASE("json_cursor null_value test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor bool_value test")
+TEST_CASE("json_cursor bool_value nlhomann_json")
 {
     std::string s = "false";
     std::istringstream is(s);
@@ -118,7 +118,7 @@ TEST_CASE("json_cursor bool_value test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor int64_value test")
+TEST_CASE("json_cursor int64_value nlhomann_json")
 {
     std::string s = "-100";
     std::istringstream is(s);
@@ -135,7 +135,7 @@ TEST_CASE("json_cursor int64_value test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor uint64_value test")
+TEST_CASE("json_cursor uint64_value nlhomann_json")
 {
     std::string s = "100";
     std::istringstream is(s);
@@ -150,7 +150,7 @@ TEST_CASE("json_cursor uint64_value test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor string_value as bignum test")
+TEST_CASE("json_cursor string_value as bignum nlhomann_json")
 {
     std::string s = "-18446744073709551617";
     std::istringstream is("\""+s+"\"");
@@ -178,7 +178,7 @@ TEST_CASE("json_cursor bigint value as bignum")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor double_value test")
+TEST_CASE("json_cursor double_value nlhomann_json")
 {
     std::string s = "100.0";
     std::istringstream is(s);
@@ -191,7 +191,7 @@ TEST_CASE("json_cursor double_value test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor array_value test")
+TEST_CASE("json_cursor array_value nlhomann_json")
 {
     std::string s = R"(
     [
@@ -318,7 +318,7 @@ TEST_CASE("json_cursor array_value test")
     CHECK(cursor.done());
 }
 
-TEST_CASE("json_cursor object_value test")
+TEST_CASE("json_cursor object_value nlhomann_json")
 {
     std::string s = R"(
         {
@@ -537,7 +537,7 @@ TEST_CASE("staj event as object")
     std::string buffer;
     encode_json(books, buffer, indenting::indent);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_string_cursor cursor(buffer);
         REQUIRE_FALSE(cursor.done());
@@ -579,7 +579,7 @@ TEST_CASE("staj event as object")
         cursor.next();
         CHECK(cursor.done());
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         json document = json::parse(buffer);
 
@@ -603,7 +603,7 @@ TEST_CASE("staj event as object")
     }
 }
 #endif
-TEMPLATE_TEST_CASE("json_cursor reset test", "",
+TEMPLATE_TEST_CASE("json_cursor reset nlhomann_json", "",
                    (std::pair<json_string_cursor, std::string>),
                    (std::pair<json_stream_cursor, std::istringstream>))
 {

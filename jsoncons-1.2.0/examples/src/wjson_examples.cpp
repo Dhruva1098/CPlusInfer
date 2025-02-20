@@ -15,7 +15,7 @@ using namespace jsoncons;
 void wjson_object()
 {
     wjson j;
-    j[L"field1"] = L"test";
+    j[L"field1"] = L"nlhomann_json";
     j[L"field2"] = 3.9;
     j[L"field3"] = true;
     std::wcout << j << L"\n";

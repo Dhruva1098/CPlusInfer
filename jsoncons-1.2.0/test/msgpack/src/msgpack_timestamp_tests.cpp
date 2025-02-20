@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/msgpack/msgpack.hpp>
@@ -20,7 +20,7 @@ using namespace jsoncons::msgpack;
 
 TEST_CASE("msgpack timestamp tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint8_t> u = {0xce,0x5a,0x4a,0xf6,0xa5};
         uint64_t expected = decode_msgpack<uint64_t>(u);
@@ -36,7 +36,7 @@ TEST_CASE("msgpack timestamp tests")
         encode_msgpack(j,output);
         CHECK(output == input);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::vector<uint64_t> expected = {1514862245,678901234};
 
@@ -46,7 +46,7 @@ TEST_CASE("msgpack timestamp tests")
 
         //CHECK(r == expected);
     }
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         std::vector<int64_t> expected = {-int64_t(2208988801),999999999};
 
@@ -61,7 +61,7 @@ TEST_CASE("msgpack timestamp tests")
         //encode_msgpack(j,output);
         //CHECK(output == input);
     }
-    SECTION("test 4")
+    SECTION("nlhomann_json 4")
     {
         std::vector<uint64_t> expected = {2147483648,1};
 
@@ -77,7 +77,7 @@ TEST_CASE("msgpack timestamp tests")
         //CHECK(output == input);
     }
 
-    SECTION("test 5")
+    SECTION("nlhomann_json 5")
     {
         std::vector<int64_t> expected = {-int64_t(2208988801),999999999};
 

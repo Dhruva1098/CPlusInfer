@@ -9,7 +9,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("test json_storage_kind")
+TEST_CASE("nlhomann_json json_storage_kind")
 {
     SECTION("is_trivial_storage")
     {
@@ -45,7 +45,7 @@ TEST_CASE("test json_storage_kind")
     }
 }
 
-TEST_CASE("test semantic_tag")
+TEST_CASE("nlhomann_json semantic_tag")
 {
     SECTION("is_number")
     {

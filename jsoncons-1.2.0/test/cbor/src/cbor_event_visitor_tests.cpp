@@ -113,7 +113,7 @@ TEST_CASE("item_event_visitor cbor 1")
         {"{\"oc\":[0]}":"a","{}":0}
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_decoder<json> destination;
         item_event_visitor_to_visitor_adaptor visitor{destination};
@@ -143,7 +143,7 @@ TEST_CASE("item_event_visitor cbor 2")
         {"{\"aa\":[0],\"bb\":[1]}":"a","{}":0}
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_decoder<json> destination;
         item_event_visitor_to_visitor_adaptor visitor{destination};
@@ -174,7 +174,7 @@ TEST_CASE("item_event_visitor cbor 3")
         {"{\"aa\":[0],{}:[1]}":"a","{}":0}
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_decoder<json> destination;
         item_event_visitor_to_visitor_adaptor visitor{destination};
@@ -205,7 +205,7 @@ TEST_CASE("item_event_visitor cbor 4")
         {"{\"aa\":[0],[]:[1]}":"a","{}":0}
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_decoder<json> destination;
         item_event_visitor_to_visitor_adaptor visitor{destination};
@@ -236,7 +236,7 @@ TEST_CASE("item_event_visitor cbor 5")
         {"[0,1,2,3]":"a","[]":0}
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_decoder<json> destination;
         item_event_visitor_to_visitor_adaptor visitor{destination};
@@ -279,7 +279,7 @@ TEST_CASE("item_event_visitor cbor 6")
         0xff // "break"
     };
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_decoder<json> destination;
         item_event_visitor_to_visitor_adaptor visitor{destination};
@@ -291,7 +291,7 @@ TEST_CASE("item_event_visitor cbor 6")
         //std::cout << destination.get_result() << "\n";
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         auto j1 = cbor::decode_cbor<json>(input);
 

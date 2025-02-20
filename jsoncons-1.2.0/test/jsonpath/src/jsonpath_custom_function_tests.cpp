@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/json_query.hpp>
@@ -23,7 +23,7 @@
 using json = jsoncons::json;
 namespace jsonpath = jsoncons::jsonpath;
 
-TEST_CASE("jsonpath custom function test")
+TEST_CASE("jsonpath custom function nlhomann_json")
 {
     json root;
     JSONCONS_TRY
@@ -49,7 +49,7 @@ TEST_CASE("jsonpath custom function test")
          }
     );
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto expr = jsonpath::make_expression<json>("divide(@.foo, @.bar)", functions);
         auto r = expr.evaluate(root);
@@ -57,14 +57,14 @@ TEST_CASE("jsonpath custom function test")
         CHECK(r[0] == json(6));
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         auto r = jsonpath::json_query(root, "divide($.foo, $.bar)", jsonpath::result_options(), functions);
         REQUIRE(!r.empty());
         CHECK(r[0] == json(6));
     }
 
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         json r;
         jsonpath::json_query(root, "divide($.foo, $.bar)", 

@@ -237,7 +237,7 @@ TEST_CASE("as_string_test")
 
 }
 
-TEST_CASE("dump cbor to string test")
+TEST_CASE("dump cbor to string nlhomann_json")
 {
     std::vector<uint8_t> v;
     cbor::cbor_bytes_encoder encoder(v);
@@ -360,7 +360,7 @@ TEST_CASE("test_indefinite_length_array_iterator")
 
 }
 
-TEST_CASE("cbor array comparison test")
+TEST_CASE("cbor array comparison nlhomann_json")
 {
     std::vector<uint8_t> v1;
     cbor::cbor_bytes_encoder encoder1(v1);
@@ -389,7 +389,7 @@ TEST_CASE("cbor array comparison test")
     serializer3.flush();
     json j3 = cbor::decode_cbor<json>(v3);
 
-    SECTION("operator== test")
+    SECTION("operator== nlhomann_json")
     {
         CHECK(j2 == j1);
         REQUIRE(j1.size() == 2);
@@ -398,7 +398,7 @@ TEST_CASE("cbor array comparison test")
         CHECK(j1[1] == j2[1]);
     }
 
-    SECTION("element operator== test")
+    SECTION("element operator== nlhomann_json")
     {
         CHECK_FALSE(j1 == j3);
         REQUIRE(j1.size() == 2);
@@ -575,7 +575,7 @@ TEST_CASE("cbor conversion tests")
     CHECK((it2 == range2.end()));
 }
 
-TEST_CASE("cbor array as<> test")
+TEST_CASE("cbor array as<> nlhomann_json")
 {
     std::vector<uint8_t> v;
     cbor::cbor_bytes_encoder encoder(v);
@@ -661,7 +661,7 @@ TEST_CASE("cbor array as<> test")
         CHECK(j[7].as<double>() == 1431027667.5);
     }
 
-    SECTION("array_iterator is<T> test")
+    SECTION("array_iterator is<T> nlhomann_json")
     {
         auto it = j.array_range().begin();
         CHECK(it++->is<std::string>());

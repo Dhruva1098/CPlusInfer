@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/json_query.hpp>
@@ -21,7 +21,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("test replace tests")
+TEST_CASE("nlhomann_json replace tests")
 {
     json j;
     JSONCONS_TRY
@@ -55,14 +55,14 @@ TEST_CASE("test replace tests")
         std::cout << e.what() << '\n';
     }
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsonpath::json_replace(j,"$..book[?(@.price==12.99)].price", 30.9);
 
         CHECK(30.9 == Approx(j["store"]["book"][1]["price"].as<double>()).epsilon(0.001));
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string expr = "$.store.book[*].price";
 
@@ -75,7 +75,7 @@ TEST_CASE("test replace tests")
         CHECK(8.0 == Approx(j["store"]["book"][2]["price"].as<double>()).epsilon(0.001));
     }
 
-    SECTION("legacy test")
+    SECTION("legacy nlhomann_json")
     {
         std::string expr = "$.store.book[*].price";
 
@@ -91,7 +91,7 @@ TEST_CASE("test replace tests")
 
 TEST_CASE("replace with binary callback tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsoncons::ojson doc = jsoncons::ojson::parse(R"({"value":"long______________enough"})");
         jsoncons::ojson rep = jsoncons::ojson::parse(R"({"value":"rew"})");
@@ -104,7 +104,7 @@ TEST_CASE("replace with binary callback tests")
 
         CHECK(expected == doc);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         jsoncons::ojson doc = jsoncons::ojson::parse(R"({"value":"long______________enough"})");
         jsoncons::ojson rep = jsoncons::ojson::parse(R"({"value":"rew"})");
@@ -117,7 +117,7 @@ TEST_CASE("replace with binary callback tests")
 
         CHECK(expected == doc);
     }
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         jsoncons::ojson doc = jsoncons::ojson::parse(R"({"value":"long______________enough"})");
         jsoncons::ojson expected = jsoncons::ojson::parse(R"({"value":"rew"})");
@@ -129,7 +129,7 @@ TEST_CASE("replace with binary callback tests")
 
         CHECK(expected == doc);
     }
-    SECTION("test 4")
+    SECTION("nlhomann_json 4")
     {
         jsoncons::ojson doc = jsoncons::ojson::parse(R"({"value":"long______________enough"})");
         jsoncons::ojson expected = jsoncons::ojson::parse(R"({"value":"XXX"})");
@@ -141,7 +141,7 @@ TEST_CASE("replace with binary callback tests")
 
         CHECK(expected == doc);
     }
-    SECTION("test 5")
+    SECTION("nlhomann_json 5")
     {
         jsoncons::ojson doc = jsoncons::ojson::parse(R"({"value":{"value":"long______________enough"}})");
         jsoncons::ojson expected = jsoncons::ojson::parse(R"({"value":"XXX"})");

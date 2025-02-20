@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/cbor/cbor_cursor.hpp>
@@ -19,7 +19,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("cbor_cursor reputon test")
+TEST_CASE("cbor_cursor reputon nlhomann_json")
 {
     ojson j = ojson::parse(R"(
     {
@@ -38,7 +38,7 @@ TEST_CASE("cbor_cursor reputon test")
     std::vector<uint8_t> data;
     cbor::encode_cbor(j, data);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         cbor::cbor_bytes_cursor cursor(data);
 
@@ -82,11 +82,11 @@ TEST_CASE("cbor_cursor reputon test")
     }
 }
 
-TEST_CASE("cbor_cursor indefinite array of array test")
+TEST_CASE("cbor_cursor indefinite array of array nlhomann_json")
 {
     std::vector<uint8_t> data = {0x82,0x83,0x63,0x66,0x6f,0x6f,0x44,0x50,0x75,0x73,0x73,0xc3,0x49,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x83,0x63,0x62,0x61,0x72,0xd6,0x44,0x50,0x75,0x73,0x73,0xc4,0x82,0x21,0x19,0x6a,0xb3};
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         cbor::cbor_bytes_cursor cursor(data);
         CHECK(cursor.current().event_type() == staj_event_type::begin_array);
@@ -289,7 +289,7 @@ struct cbor_stream_cursor_reset_test_traits
     }
 };
 
-TEMPLATE_TEST_CASE("cbor_cursor reset test", "",
+TEMPLATE_TEST_CASE("cbor_cursor reset nlhomann_json", "",
                    cbor_bytes_cursor_reset_test_traits,
                    cbor_stream_cursor_reset_test_traits)
 {

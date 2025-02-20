@@ -58,7 +58,7 @@ static void check_dtoa(double x, const std::vector<std::string>& expected)
     check_safe_dtoa(x,expected);
 }
 
-TEST_CASE("test grisu3")
+TEST_CASE("nlhomann_json grisu3")
 {
     check_dtoa(1.0e100, {"1e+100"});
     check_dtoa(1.0e-100, {"1e-100"});

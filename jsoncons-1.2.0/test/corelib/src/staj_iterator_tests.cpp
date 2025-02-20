@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <jsoncons/json.hpp>
 #include <jsoncons/json_encoder.hpp>
@@ -41,7 +41,7 @@ TEST_CASE("jtaj_array_view tests")
     ]
     )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_string_cursor cursor(s);
 
@@ -63,7 +63,7 @@ TEST_CASE("jtaj_array_view tests")
         CHECK((it == end));
     }
 
-    SECTION("filter test")
+    SECTION("filter nlhomann_json")
     {
         json_string_cursor cursor(s);
 
@@ -101,7 +101,7 @@ TEST_CASE("jtaj_array_view tests")
     }
 }
 
-TEST_CASE("object_iterator test")
+TEST_CASE("object_iterator nlhomann_json")
 {
     std::string s = R"(
         {
@@ -112,7 +112,7 @@ TEST_CASE("object_iterator test")
         }
     )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::istringstream is(s);
         json_stream_cursor cursor(is);

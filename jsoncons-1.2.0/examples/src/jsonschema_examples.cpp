@@ -366,7 +366,7 @@ void draft_201212_example()
     json schema = json::parse(R"(
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://test.json-schema.org/typical-dynamic-resolution/root",
+    "$id": "https://nlhomann_json.json-schema.org/typical-dynamic-resolution/root",
     "$ref": "list",
     "$defs": {
         "foo": {

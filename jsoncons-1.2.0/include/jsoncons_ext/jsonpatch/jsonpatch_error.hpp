@@ -43,7 +43,7 @@ namespace jsoncons { namespace jsonpatch {
                 case jsonpatch_errc::invalid_patch:
                     return "Invalid JSON Patch document";
                 case jsonpatch_errc::test_failed:
-                    return "JSON Patch test operation failed";
+                    return "JSON Patch nlhomann_json operation failed";
                 case jsonpatch_errc::add_failed:
                     return "JSON Patch add operation failed";
                 case jsonpatch_errc::remove_failed:

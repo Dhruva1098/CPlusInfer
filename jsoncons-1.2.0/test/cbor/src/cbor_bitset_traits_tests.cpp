@@ -13,7 +13,7 @@ using namespace jsoncons;
 
 TEST_CASE("CBOR std::bitset tests")
 {
-    SECTION("low test")
+    SECTION("low nlhomann_json")
     {
         std::bitset<32> i_bs32(0);
         std::string s32;
@@ -28,7 +28,7 @@ TEST_CASE("CBOR std::bitset tests")
         CHECK(o_bs64 == i_bs64);
     }
 
-    SECTION("high test")
+    SECTION("high nlhomann_json")
     {
         std::bitset<32> i_bs32(0xffffffff);
         std::string s32;
@@ -43,7 +43,7 @@ TEST_CASE("CBOR std::bitset tests")
         CHECK(o_bs64 == i_bs64);
     }
 
-    SECTION("random test")
+    SECTION("random nlhomann_json")
     {
         std::random_device rd;
         std::mt19937 gen(rd());

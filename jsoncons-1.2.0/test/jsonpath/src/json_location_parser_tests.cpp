@@ -12,7 +12,7 @@ using namespace jsoncons;
 
 TEST_CASE("jsonpath json_location_parser tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         jsonpath::detail::json_location_parser<char,std::allocator<char>> parser;
 
@@ -28,7 +28,7 @@ TEST_CASE("jsonpath json_location_parser tests")
         CHECK(location[2].has_name());
         CHECK(location[2].name() == "bar");
     }
-    SECTION("test dot")
+    SECTION("nlhomann_json dot")
     {
         jsonpath::detail::json_location_parser<char, std::allocator<char>> parser;
 
@@ -44,7 +44,7 @@ TEST_CASE("jsonpath json_location_parser tests")
         CHECK(location[2].has_name());
         CHECK(location[2].name() == "bar");
     }
-    SECTION("test errors")
+    SECTION("nlhomann_json errors")
     {
         jsonpath::detail::json_location_parser<char, std::allocator<char>> parser;
 

@@ -199,7 +199,7 @@ TEST_CASE("jsonschema $dynamicRef tests 2")
     std::string schema_str = R"(
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
+    "$id": "https://nlhomann_json.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
     "if": {
         "$id": "first_scope",
         "$defs": {

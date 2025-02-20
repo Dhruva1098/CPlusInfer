@@ -196,7 +196,7 @@ ojson j1 = ojson::parse(R"(
 #pragma GCC diagnostic ignored "-Wpedantic"
 TEST_CASE("cbor json constructor __int64 tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j1("-18446744073709551617", semantic_tag::bigint);
 
@@ -214,7 +214,7 @@ TEST_CASE("cbor json constructor __int64 tests")
 }
 TEST_CASE("cbor json constructor unsigned __int64 tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j1("18446744073709551616", semantic_tag::bigint);
 

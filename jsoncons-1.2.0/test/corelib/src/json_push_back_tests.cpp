@@ -15,7 +15,7 @@ using namespace jsoncons;
 
 TEST_CASE("json array deeply nested tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json doc(json_array_arg);
         json* ref = &doc;
@@ -30,7 +30,7 @@ TEST_CASE("json array deeply nested tests")
 
 TEST_CASE("json_object deeply nested tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json doc(json_object_arg);
         json* ref = &doc;
@@ -41,7 +41,7 @@ TEST_CASE("json_object deeply nested tests")
             ref = &ref->at(0);
         }
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         ojson doc(json_object_arg);
         ojson* ref = &doc;

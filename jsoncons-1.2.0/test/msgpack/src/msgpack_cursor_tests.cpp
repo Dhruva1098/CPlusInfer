@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/msgpack/msgpack_cursor.hpp>
@@ -19,7 +19,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("msgpack_cursor reputon test")
+TEST_CASE("msgpack_cursor reputon nlhomann_json")
 {
     ojson j = ojson::parse(R"(
     {
@@ -38,7 +38,7 @@ TEST_CASE("msgpack_cursor reputon test")
     std::vector<uint8_t> data;
     msgpack::encode_msgpack(j, data);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         msgpack::msgpack_bytes_cursor cursor(data);
 
@@ -291,7 +291,7 @@ struct msgpack_stream_cursor_reset_test_traits
     }
 };
 
-TEMPLATE_TEST_CASE("msgpack_cursor reset test", "",
+TEMPLATE_TEST_CASE("msgpack_cursor reset nlhomann_json", "",
                    msgpack_bytes_cursor_reset_test_traits,
                    msgpack_stream_cursor_reset_test_traits)
 {

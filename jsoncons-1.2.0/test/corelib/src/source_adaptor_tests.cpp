@@ -14,7 +14,7 @@ using namespace jsoncons;
  
 TEST_CASE("buffer reader tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_source_adaptor<jsoncons::string_source<char>> reader{};
     }
@@ -22,7 +22,7 @@ TEST_CASE("buffer reader tests")
  
 TEST_CASE("json_source_adaptor constructor tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json_source_adaptor<string_source<char>> source{string_source<char>()};
         CHECK(source.eof());

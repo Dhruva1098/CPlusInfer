@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/ubjson/ubjson_cursor.hpp>
@@ -19,7 +19,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("ubjson_cursor reputon test")
+TEST_CASE("ubjson_cursor reputon nlhomann_json")
 {
     ojson j = ojson::parse(R"(
     {
@@ -38,7 +38,7 @@ TEST_CASE("ubjson_cursor reputon test")
     std::vector<uint8_t> data;
     ubjson::encode_ubjson(j, data);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         ubjson::ubjson_bytes_cursor cursor(data);
 
@@ -318,7 +318,7 @@ struct ubjson_stream_cursor_reset_test_traits
     }
 };
 
-TEMPLATE_TEST_CASE("ubjson_cursor reset test", "",
+TEMPLATE_TEST_CASE("ubjson_cursor reset nlhomann_json", "",
                    ubjson_bytes_cursor_reset_test_traits,
                    ubjson_stream_cursor_reset_test_traits)
 {

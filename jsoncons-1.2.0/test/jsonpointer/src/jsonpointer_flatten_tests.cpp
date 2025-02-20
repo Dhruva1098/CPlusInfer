@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpointer/jsonpointer.hpp>
@@ -21,7 +21,7 @@ using namespace jsoncons;
 
 TEST_CASE("jsonpointer unflatten tests 1")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json input = json::parse(R"(
         {
@@ -68,7 +68,7 @@ TEST_CASE("jsonpointer unflatten tests 2")
 
     json flattened = jsonpointer::flatten(input);
 
-    SECTION("default test")
+    SECTION("default nlhomann_json")
     {
         json expected = json::parse(R"(
         [
@@ -85,7 +85,7 @@ TEST_CASE("jsonpointer unflatten tests 2")
         CHECK(unflattened == expected);
         //std::cout << "(1)\n" << pretty_print(unflattened) << "\n";
     }
-    SECTION("object test")
+    SECTION("object nlhomann_json")
     {
         json expected = json::parse(R"(
         {
@@ -108,7 +108,7 @@ TEST_CASE("jsonpointer unflatten tests 2")
     }
 }
 
-TEST_CASE("flatten test")
+TEST_CASE("flatten nlhomann_json")
 {
     json input = json::parse(R"(
     {

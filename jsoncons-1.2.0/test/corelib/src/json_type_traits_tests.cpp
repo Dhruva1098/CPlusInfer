@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <jsoncons/json.hpp>
 #include <jsoncons/json_encoder.hpp>
@@ -293,7 +293,7 @@ TEST_CASE("json_type_traits for std::variant")
 }
     )";
 
-    SECTION("test decode and encode")
+    SECTION("nlhomann_json decode and encode")
     {
         ns::Basket basket = decode_json<ns::Basket>(input);
 
@@ -305,7 +305,7 @@ TEST_CASE("json_type_traits for std::variant")
         CHECK(j1 == j2);
     }
 
-    SECTION("std::variant<int, double, bool, std::string, ns::Color> test")
+    SECTION("std::variant<int, double, bool, std::string, ns::Color> nlhomann_json")
     {
         using variant_type  = std::variant<int, double, bool, std::string, ns::Color>;
 
@@ -345,7 +345,7 @@ TEST_CASE("json_type_traits for std::variant")
         CHECK(std::get<3>(v5) == std::string("YELLOW"));
     }
 
-    SECTION("std::variant<int, double, bool, ns::Color, std::string> test")
+    SECTION("std::variant<int, double, bool, ns::Color, std::string> nlhomann_json")
     {
         using variant_type  = std::variant<int, double, bool, ns::Color, std::string>;
 

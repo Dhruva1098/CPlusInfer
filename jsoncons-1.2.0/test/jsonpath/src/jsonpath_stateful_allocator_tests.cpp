@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/jsonpath.hpp>
@@ -23,7 +23,7 @@ using MyScopedAllocator = std::scoped_allocator_adaptor<free_list_allocator<T>>;
 
 using cust_json = basic_json<char,sorted_policy,MyScopedAllocator<char>>;
 
-TEST_CASE("jsonpath stateful allocator test")
+TEST_CASE("jsonpath stateful allocator nlhomann_json")
 {
     std::string input = R"(
 { "store": {

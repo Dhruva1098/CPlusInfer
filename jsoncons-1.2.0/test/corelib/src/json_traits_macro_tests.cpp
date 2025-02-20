@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <jsoncons/json.hpp>
 #include <jsoncons/json_encoder.hpp>
@@ -918,7 +918,7 @@ TEST_CASE("JSONCONS_POLYMORPHIC_TRAITS tests")
     const std::string lastName1 = "Doe";
     const double pay1 = 30250;
 
-    SECTION("decode vector of shared_ptr test")
+    SECTION("decode vector of shared_ptr nlhomann_json")
     {
         auto v = jsoncons::decode_json<std::vector<std::shared_ptr<ns::Employee>>>(input);
         REQUIRE(v.size() == 2);
@@ -930,7 +930,7 @@ TEST_CASE("JSONCONS_POLYMORPHIC_TRAITS tests")
         CHECK(v[1]->calculatePay() == pay1);
     }
 
-    SECTION("decode vector of unique_ptr test")
+    SECTION("decode vector of unique_ptr nlhomann_json")
     {
 
         auto v = jsoncons::decode_json<std::vector<std::unique_ptr<ns::Employee>>>(input);
@@ -942,7 +942,7 @@ TEST_CASE("JSONCONS_POLYMORPHIC_TRAITS tests")
         CHECK(v[1]->lastName() == lastName1);
         CHECK(v[1]->calculatePay() == pay1);
     }
-    SECTION("encode vector of shared_ptr test")
+    SECTION("encode vector of shared_ptr nlhomann_json")
     {
         std::vector<std::shared_ptr<ns::Employee>> v;
 
@@ -954,7 +954,7 @@ TEST_CASE("JSONCONS_POLYMORPHIC_TRAITS tests")
         json expected = json::parse(input);
         CHECK(expected == j);
     }
-    SECTION("encode vector of unique_ptr test")
+    SECTION("encode vector of unique_ptr nlhomann_json")
     {
         std::vector<std::unique_ptr<ns::Employee>> v;
 
@@ -1248,9 +1248,9 @@ TEST_CASE("hiking_reputation")
     }
 }
 
-TEST_CASE("JSONCONS_N_MEMBER_TRAITS pointer and optional test")
+TEST_CASE("JSONCONS_N_MEMBER_TRAITS pointer and optional nlhomann_json")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         ns::smart_pointer_and_optional_test1 val;
         val.field1 = std::make_shared<std::string>("Field 1"); 

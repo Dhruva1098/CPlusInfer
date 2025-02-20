@@ -7,7 +7,7 @@
 
 using namespace jsoncons; 
 
-TEST_CASE("test json_reader buffered read")
+TEST_CASE("nlhomann_json json_reader buffered read")
 {
     SECTION("string with split buffer")
     {
@@ -281,7 +281,7 @@ TEST_CASE("test_read_multiple")
     CHECK(reader.eof());
 }
 
-TEST_CASE("json_reader read from string test")
+TEST_CASE("json_reader read from string nlhomann_json")
 {
     std::string s = R"(
 {

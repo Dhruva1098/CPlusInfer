@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/json_query.hpp>
@@ -21,7 +21,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("jsonpath json_query json test")
+TEST_CASE("jsonpath json_query json nlhomann_json")
 {
     json j;
     JSONCONS_TRY
@@ -55,14 +55,14 @@ TEST_CASE("jsonpath json_query json test")
         std::cout << e.what() << '\n';
     }
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto result = jsonpath::json_query(j,"$..book[?(@.category == 'fiction')].title");
         auto expected = json::parse(R"(["Sword of Honour","Moby Dick"])");
         CHECK((result == expected));
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string expr = "$..book[?(@.category == 'fiction')].title";
         auto result = jsonpath::json_query(j,expr);
@@ -70,7 +70,7 @@ TEST_CASE("jsonpath json_query json test")
         CHECK((result == expected));
     }
 
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         std::string expr = "$..book[?(@.title == 'Sword of Honour')].title";
 
@@ -80,7 +80,7 @@ TEST_CASE("jsonpath json_query json test")
     }
 }
 
-TEST_CASE("jsonpath normalized path test")
+TEST_CASE("jsonpath normalized path nlhomann_json")
 {
    const json j = json::parse(R"({"\\":0})");
 
@@ -94,7 +94,7 @@ TEST_CASE("jsonpath normalized path test")
    CHECK(result[0].as<int>() == 0);
 }
 
-TEST_CASE("jsonpath json_query wjson test")
+TEST_CASE("jsonpath json_query wjson nlhomann_json")
 {
     wjson j;
     JSONCONS_TRY
@@ -128,7 +128,7 @@ TEST_CASE("jsonpath json_query wjson test")
         std::cout << e.what() << '\n';
     }
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto result = jsonpath::json_query(j,L"$..book[?(@.category == 'fiction')].title");
         auto expected = wjson::parse(LR"(["Sword of Honour","Moby Dick"])");

@@ -113,7 +113,7 @@ TEST_CASE("email tests")
 {
     SECTION("email")
     {
-        //CHECK(jsonschema::validate_email_rfc5322("pete@silly.test"));
+        //CHECK(jsonschema::validate_email_rfc5322("pete@silly.nlhomann_json"));
         CHECK(jsonschema::validate_email_rfc5322("joe.bloggs@example.com"));
         CHECK_FALSE(jsonschema::validate_email_rfc5322("te..st@example.com"));
     }

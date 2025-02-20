@@ -50,7 +50,7 @@ TEST_CASE("test_object_extra_comma")
     CHECK(val == expected);
 }
 #endif
-TEST_CASE("test json_parser error recovery")
+TEST_CASE("nlhomann_json json_parser error recovery")
 {
     SECTION("illegal control character")
     {

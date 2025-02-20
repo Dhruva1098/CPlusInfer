@@ -21,7 +21,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("cbor encode multi dim array test")
+TEST_CASE("cbor encode multi dim array nlhomann_json")
 {
     std::vector<uint8_t> v;
 
@@ -531,9 +531,9 @@ TEMPLATE_TEST_CASE("test_cbor_encoder_reset", "",
 }
 
 
-TEST_CASE("test cbor encode with raw tags")
+TEST_CASE("nlhomann_json cbor encode with raw tags")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint8_t> data;
         cbor::cbor_bytes_encoder encoder(data);

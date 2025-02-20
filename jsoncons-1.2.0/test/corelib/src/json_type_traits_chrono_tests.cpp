@@ -8,7 +8,7 @@ using namespace jsoncons;
 
 TEST_CASE("json_type_traits chron tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         uint64_t time = 1000;
 
@@ -18,7 +18,7 @@ TEST_CASE("json_type_traits chron tests")
 
         CHECK(val.count() == std::chrono::seconds::rep(time));
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         double time = 1000.100;
 

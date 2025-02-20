@@ -79,7 +79,7 @@ TEST_CASE("jsonschema stop early tests")
     jsonschema::json_schema<ojson> compiled = jsonschema::make_json_schema(std::move(schema));
     ojson data = ojson::parse(data_str);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string expected_str = R"(
 {
@@ -100,7 +100,7 @@ TEST_CASE("jsonschema stop early tests")
         //std::cout << pretty_print(results) << "\n";
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string expected_str = R"(
 {

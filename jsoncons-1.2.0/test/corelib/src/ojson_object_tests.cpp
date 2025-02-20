@@ -13,7 +13,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("ojson insert(first,last) test")
+TEST_CASE("ojson insert(first,last) nlhomann_json")
 {
     SECTION("copy map into ojson")
     {
@@ -245,7 +245,7 @@ TEST_CASE("test_ojson_merge_move")
     //std::cout << "(2)\n" << source << '\n';
 }
 
-TEST_CASE("ojson merge_or_update test")
+TEST_CASE("ojson merge_or_update nlhomann_json")
 {
     ojson doc = ojson::parse(R"(
     {
@@ -344,7 +344,7 @@ using MyScopedAllocator = std::scoped_allocator_adaptor<free_list_allocator<T>>;
 
 using cust_json = jsoncons::basic_json<char, jsoncons::order_preserving_policy, MyScopedAllocator<char>>;
 
-TEST_CASE("cust_json.merge test with order_preserving_policy and statefule allocator")
+TEST_CASE("cust_json.merge nlhomann_json with order_preserving_policy and statefule allocator")
 {
     MyScopedAllocator<char> alloc(1);
 
@@ -474,7 +474,7 @@ TEST_CASE("cust_json object erase with iterator")
     }
 }
 
-TEST_CASE("cust_json merge_or_update test")
+TEST_CASE("cust_json merge_or_update nlhomann_json")
 {
     MyScopedAllocator<char> alloc(1);
 

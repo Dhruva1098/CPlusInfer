@@ -83,12 +83,12 @@ TEST_CASE("jsonschema version tests")
   }
       )");
 
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         REQUIRE_THROWS_WITH(jsonschema::make_json_schema(schema_03), "Unsupported schema version http://json-schema.org/draft-03/schema#");
     }
 
-    SECTION("test 7")
+    SECTION("nlhomann_json 7")
     {
         REQUIRE_THROWS_WITH(jsonschema::make_json_schema(schema_07), "https://jsoncons.com#/properties/price/exclusiveMinimum: exclusiveMinimum must be a number value");
     }

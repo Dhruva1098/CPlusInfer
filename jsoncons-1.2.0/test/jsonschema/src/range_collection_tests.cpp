@@ -23,7 +23,7 @@ TEST_CASE("jsonschema range collection tests")
     ranges.insert(range{10,15});
     ranges.insert(range{7,8});
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         CHECK(ranges.contains(0));
         CHECK(ranges.contains(1));
@@ -41,7 +41,7 @@ TEST_CASE("jsonschema range collection tests")
         CHECK(ranges.contains(13));
         CHECK(ranges.contains(14));
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         range_collection coll2;
         for (auto range : ranges)

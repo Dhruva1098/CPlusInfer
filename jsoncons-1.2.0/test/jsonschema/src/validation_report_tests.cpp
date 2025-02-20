@@ -23,7 +23,7 @@ TEST_CASE("jsonschema validation report tests")
     json schema = json::parse(R"(
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://test.com/schema",
+    "$id": "https://nlhomann_json.com/schema",
     "$defs": {
         "integer": {
             "type": "integer"
@@ -51,7 +51,7 @@ TEST_CASE("jsonschema validation report tests")
     {
         "valid": false,
         "evaluationPath": "/properties/fails",
-        "schemaLocation": "https://test.com/schema#/properties/fails",
+        "schemaLocation": "https://nlhomann_json.com/schema#/properties/fails",
         "instanceLocation": "/fails",
         "error": "False schema always fails"
     }
@@ -76,21 +76,21 @@ TEST_CASE("jsonschema validation report tests")
     {
         "valid": false,
         "evaluationPath": "/properties/multi/allOf",
-        "schemaLocation": "https://test.com/schema#/properties/multi/allOf",
+        "schemaLocation": "https://nlhomann_json.com/schema#/properties/multi/allOf",
         "instanceLocation": "/multi",
         "error": "Must be valid against all schemas, but found unmatched schemas",
         "details": [
             {
                 "valid": false,
                 "evaluationPath": "/properties/multi/allOf/0/$ref/type",
-                "schemaLocation": "https://test.com/schema#/$defs/integer",
+                "schemaLocation": "https://nlhomann_json.com/schema#/$defs/integer",
                 "instanceLocation": "/multi",
                 "error": "Expected integer, found number"
             },
             {
                 "valid": false,
                 "evaluationPath": "/properties/multi/allOf/1/$ref/minimum",
-                "schemaLocation": "https://test.com/schema#/$defs/minimum/minimum",
+                "schemaLocation": "https://nlhomann_json.com/schema#/$defs/minimum/minimum",
                 "instanceLocation": "/multi",
                 "error": "Minimum value is 5 but found 3.5"
             }
@@ -366,10 +366,10 @@ TEST_CASE("jsonschema items output tests")
           "op": {
             "description": "The operation to perform.",
             "type": "string",
-            "enum": ["add", "replace", "test"]
+            "enum": ["add", "replace", "nlhomann_json"]
           },
           "value": {
-            "description": "The value to add, replace or test."
+            "description": "The value to add, replace or nlhomann_json."
           }
         }
       },
@@ -859,8 +859,8 @@ TEST_CASE("jsonschema with 'oneOf' output tests")
     
         json data = json::parse(R"(
 {
-    "One" : "test",
-    "Two" : "test"
+    "One" : "nlhomann_json",
+    "Two" : "nlhomann_json"
 }
 )");
     

@@ -218,7 +218,7 @@ TEST_CASE("test_traits3")
     CHECK(s == "-18446744073709551617");
 }
 
-TEST_CASE("test shift left")
+TEST_CASE("nlhomann_json shift left")
 {
     SECTION("n << 1")
     {

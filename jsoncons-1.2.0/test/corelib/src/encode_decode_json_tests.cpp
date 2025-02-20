@@ -171,7 +171,7 @@ TEST_CASE("convert_array_test")
     }
 }
 
-TEST_CASE("convert vector of vector test")
+TEST_CASE("convert vector of vector nlhomann_json")
 {
     std::vector<double> u{1,2,3,4};
     std::vector<std::vector<double>> v{u,u};
@@ -316,7 +316,7 @@ TEST_CASE("decode_json with work allocator")
         CHECK(m["b"] == result["b"]);
     }
 
-    SECTION("convert vector of vector test")
+    SECTION("convert vector of vector nlhomann_json")
     {
         std::vector<double> u{1,2,3,4};
         std::vector<std::vector<double>> v{u,u};

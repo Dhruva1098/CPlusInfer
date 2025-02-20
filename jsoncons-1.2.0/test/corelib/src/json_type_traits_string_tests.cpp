@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <catch/catch.hpp>
 #include <jsoncons/json.hpp>
@@ -16,7 +16,7 @@ using jsoncons::encode_json;
 
 TEST_CASE("json_type_traits string tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string s = "foo";
 
@@ -27,7 +27,7 @@ TEST_CASE("json_type_traits string tests")
 
         CHECK(s2 == s);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::wstring s = L"foo";
 
@@ -42,7 +42,7 @@ TEST_CASE("json_type_traits string tests")
 
 TEST_CASE("json_type_traits vector of string tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<std::string> v = {"foo","bar","baz"};
 
@@ -53,7 +53,7 @@ TEST_CASE("json_type_traits vector of string tests")
 
         CHECK(v2 == v);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::vector<std::wstring> v = {L"foo",L"bar",L"baz"};
 

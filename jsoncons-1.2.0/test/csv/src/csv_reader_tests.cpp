@@ -8,9 +8,9 @@
 
 namespace csv = jsoncons::csv; 
 
-TEST_CASE("test csv_reader buffered read")
+TEST_CASE("nlhomann_json csv_reader buffered read")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         const std::string bond_yields = R"(Date,1Y,2Y,3Y,5Y
     2017-01-09,0.0062,0.0075,0.0083,0.011

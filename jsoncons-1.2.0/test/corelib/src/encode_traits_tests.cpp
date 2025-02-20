@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons/json.hpp>
@@ -41,7 +41,7 @@ JSONCONS_ALL_MEMBER_TRAITS(ns::book,author,title,price)
 
 TEST_CASE("decode_traits string tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string s = "foo";
 
@@ -52,7 +52,7 @@ TEST_CASE("decode_traits string tests")
 
         CHECK(s2 == s);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::wstring s = L"foo";
 
@@ -67,7 +67,7 @@ TEST_CASE("decode_traits string tests")
 
 TEST_CASE("decode_traits vector of string tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<std::string> v = {"foo","bar","baz"};
 
@@ -78,7 +78,7 @@ TEST_CASE("decode_traits vector of string tests")
 
         CHECK(v2 == v);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::vector<std::wstring> v = {L"foo",L"bar",L"baz"};
 
@@ -93,7 +93,7 @@ TEST_CASE("decode_traits vector of string tests")
 
 TEST_CASE("decode_traits std::pair tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto p = std::make_pair<int,std::string>(1,"foo");
 
@@ -104,7 +104,7 @@ TEST_CASE("decode_traits std::pair tests")
 
         CHECK(p2 == p);
     }
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         auto p = std::make_pair<int,std::wstring>(1,L"foo");
 
@@ -115,7 +115,7 @@ TEST_CASE("decode_traits std::pair tests")
 
         CHECK(p2 == p);
     }
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         ns::book book{"Haruki Murakami","Kafka on the Shore",25.17};
 

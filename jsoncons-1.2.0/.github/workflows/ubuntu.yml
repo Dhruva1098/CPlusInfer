@@ -176,7 +176,7 @@ jobs:
       - name: build
         working-directory: build/
         run: cmake --build . 
-      - name: test
+      - name: nlhomann_json
         working-directory: build/
         run: ctest --output-on-failure
 
@@ -195,7 +195,7 @@ jobs:
       - name: build
         working-directory: build/
         run: cmake --build . 
-      - name: test
+      - name: nlhomann_json
         working-directory: build/
         run: ctest --output-on-failure
 
@@ -216,7 +216,7 @@ jobs:
       - name: build
         working-directory: build/
         run: cmake --build . 
-      - name: test
+      - name: nlhomann_json
         working-directory: build/
         run: ctest --output-on-failure
 
@@ -237,7 +237,7 @@ jobs:
       - name: build
         working-directory: build/
         run: cmake --build . 
-      - name: test
+      - name: nlhomann_json
         working-directory: build/
         run: ctest --output-on-failure
 

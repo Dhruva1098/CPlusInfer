@@ -16,16 +16,16 @@ using namespace jsoncons;
 TEST_CASE("test_wjson")
 {
     wjson root;
-    root[L"field1"] = L"test";
+    root[L"field1"] = L"nlhomann_json";
     root[L"field2"] = 3.9;
     root[L"field3"] = true;
 
-    CHECK(root[L"field1"].as<std::wstring>() == L"test");
+    CHECK(root[L"field1"].as<std::wstring>() == L"nlhomann_json");
     CHECK(root[L"field2"].as<double>() == 3.9);
     CHECK(root[L"field3"].as<bool>() == true);
 
     std::wstring s1 = root[L"field1"].as<std::wstring>();
-    CHECK(s1 == L"test");
+    CHECK(s1 == L"nlhomann_json");
 }
 
 TEST_CASE("test_wjson_escape_u")
@@ -72,7 +72,7 @@ TEST_CASE("wjson pretty print tests")
     CHECK(actualStr.str() == expectedStr.str());
 }
 
-TEST_CASE("wjson test case")
+TEST_CASE("wjson nlhomann_json case")
 {
     std::wstring data = LR"(
     {"call":"script","cwd":"C:\\Users\\Robert\\Documents\\Visual Studio 2015\\Projects\\EscPosPrinter\\Release\\","file":"scripts\\pos-submitorder.js","filename":"pos-submitorder.js","lib":"function",

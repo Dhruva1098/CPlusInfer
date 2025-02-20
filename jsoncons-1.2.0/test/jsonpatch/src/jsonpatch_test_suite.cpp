@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpatch/jsonpatch.hpp>
@@ -85,7 +85,7 @@ TEST_CASE("jsonpatch tests")
     SECTION("compliance")
     {
         jsonpatch_tests("./jsonpatch/input/compliance/rfc6902-examples.json");
-        //jsonpatch_tests("./jsonpatch/input/compliance/test.json");
+        //jsonpatch_tests("./jsonpatch/input/compliance/nlhomann_json.json");
     }
 }
 

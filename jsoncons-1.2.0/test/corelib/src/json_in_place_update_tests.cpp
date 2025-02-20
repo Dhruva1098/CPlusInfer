@@ -50,7 +50,7 @@ namespace {
 
 TEST_CASE("json in-place update tests")
 {
-    SECTION("test compact\n")
+    SECTION("nlhomann_json compact\n")
     {
         std::string format = "{\"items\": [{\"id\":1, \"name\" : \"abc\", \"expiry\" : \"0420\"}, { \"id\":2,\"name\" : \"%s\",\"expiry\" : \"0720\" }] }";
 
@@ -65,7 +65,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test \n")
+    SECTION("nlhomann_json \n")
     {
         std::string format = "{\"items\"\n:\n \n[\n{\"id\"\n:\n1\n,\n \"name\" \n:\n \"abc\"\n,\n \"expiry\" \n:\n \"0420\"\n}\n\n,\n { \"id\"\n:\n2\n,\n\"name\" \n:\n \"%s\"\n,\n\"expiry\" \n:\n \"0720\" \n}\n\n]\n \n}";
 
@@ -80,7 +80,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test \r\n")
+    SECTION("nlhomann_json \r\n")
     {
         std::string format = "{\"items\"\r\n:\r\n \r\n[\r\n{\"id\"\r\n:\r\n1\r\n,\r\n \"name\" \r\n:\r\n \"abc\"\r\n,\r\n \"foo\" \r\n:\r\n 1000.0e-50\r\n,\r\n \"expiry\" \r\n:\r\n \"0420\"\r\n}\r\n\r\n,\r\n { \"id\"\r\n:\r\n2\r\n,\r\n\"name\" \r\n:\r\n \"%s\"\r\n,\r\n\"expiry\" \r\n:\r\n \"0720\" \r\n}\r\n\r\n]\r\n \r\n}";
 
@@ -94,7 +94,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test \r")
+    SECTION("nlhomann_json \r")
     {
         std::string format = "{\"items\"\r:\r \r[\r{\"id\"\r:\r1\r,\r \"name\" \r:\r \"abc\"\r,\r \"expiry\" \r:\r \"0420\"\r}\r\r,\r { \"id\"\r:\r2\r,\r\"name\" \r:\r \"%s\"\r,\r\"expiry\" \r:\r \"0720\" \r}\r\r]\r \r}";
 
@@ -109,7 +109,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test /**/ \n")
+    SECTION("nlhomann_json /**/ \n")
     {
         std::string format = "/*\n       \n        \n*/\"%s\"";
 
@@ -123,7 +123,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test /**/ \r")
+    SECTION("nlhomann_json /**/ \r")
     {
         std::string format = "/*\r       \r        \r*/\"%s\"";
 
@@ -137,7 +137,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test /**/ \r\n")
+    SECTION("nlhomann_json /**/ \r\n")
     {
         std::string format = "/*\r\n       \r\n        \r\n*/\"%s\"";
 
@@ -151,7 +151,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test // \n")
+    SECTION("nlhomann_json // \n")
     {
         std::string format = "//               \n\"%s\"";
 
@@ -165,7 +165,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test // \r")
+    SECTION("nlhomann_json // \r")
     {
         std::string format = "//               \r\"%s\"";
 
@@ -179,7 +179,7 @@ TEST_CASE("json in-place update tests")
         reader.read();
         CHECK(std::string(input) == std::string(expected));
     }
-    SECTION("test // \r\n")
+    SECTION("nlhomann_json // \r\n")
     {
         std::string format = "//               \r\n\"%s\"";
 

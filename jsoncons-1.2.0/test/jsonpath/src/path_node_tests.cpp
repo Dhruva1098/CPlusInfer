@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/path_node.hpp>
@@ -13,7 +13,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("test json_location equals")
+TEST_CASE("nlhomann_json json_location equals")
 {
     jsonpath::path_node a1{};
     jsonpath::path_node a2(&a1,"foo");
@@ -29,7 +29,7 @@ TEST_CASE("test json_location equals")
     CHECK((jsonpath::to_string(a4) == std::string("$['foo']['bar'][0]")));
 }
 
-TEST_CASE("test json_location with solidus to_string")
+TEST_CASE("nlhomann_json json_location with solidus to_string")
 {
     jsonpath::path_node a1{};
     jsonpath::path_node a2(&a1,"foo's");
@@ -39,9 +39,9 @@ TEST_CASE("test json_location with solidus to_string")
     CHECK(jsonpath::to_string(a4) == std::string(R"($['foo\'s']['bar'][0])"));
 }
 
-TEST_CASE("test path_node less")
+TEST_CASE("nlhomann_json path_node less")
 {
-    SECTION("test rhs < lhs")
+    SECTION("nlhomann_json rhs < lhs")
     {
         jsonpath::path_node a1{};
         jsonpath::path_node a2(&a1,"foo");
@@ -65,7 +65,7 @@ TEST_CASE("test path_node less")
         CHECK_FALSE(a4 < b2);
     }
 
-    SECTION("test rhs < lhs 2")
+    SECTION("nlhomann_json rhs < lhs 2")
     {
         jsonpath::path_node a1{};
         jsonpath::path_node a2(&a1,"foo");
@@ -89,7 +89,7 @@ TEST_CASE("test path_node less")
         CHECK_FALSE(a4 < b2);
     }
 
-    SECTION("test rhs == lhs")
+    SECTION("nlhomann_json rhs == lhs")
     {
         jsonpath::path_node a1{};
         jsonpath::path_node a2(&a1,"foo");

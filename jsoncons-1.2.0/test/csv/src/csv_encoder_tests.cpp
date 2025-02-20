@@ -7,7 +7,7 @@
 
 namespace csv = jsoncons::csv; 
 
-TEST_CASE("test json to flat csv with column mappings")
+TEST_CASE("nlhomann_json json to flat csv with column mappings")
 {
 //#if 0
     SECTION("array of objects to csv")
@@ -125,7 +125,7 @@ TEST_CASE("test json to flat csv with column mappings")
 //#endif    
 }
 
-TEST_CASE("test json to flat csv")
+TEST_CASE("nlhomann_json json to flat csv")
 {
 //#if 0
     SECTION("array of objects to csv")
@@ -408,7 +408,7 @@ NY,LON,TOR;LON
 //#endif           
 }
 
-TEST_CASE("test json to non-flat csv with column mappings")
+TEST_CASE("nlhomann_json json to non-flat csv with column mappings")
 {
 //#if 0
     SECTION("array of objects to csv")
@@ -526,7 +526,7 @@ TEST_CASE("test json to non-flat csv with column mappings")
 //#endif
 }
 
-TEST_CASE("test json to non-flat csv")
+TEST_CASE("nlhomann_json json to non-flat csv")
 {
 //#if 0
     SECTION("array of objects to csv")
@@ -723,7 +723,7 @@ NY,LON,TOR;LON
 }
 
 
-TEST_CASE("test json to flat csv with column names")
+TEST_CASE("nlhomann_json json to flat csv with column names")
 {
 //#if 0
     SECTION("array of objects to csv")

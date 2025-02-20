@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/jsonpath/flatten.hpp>
@@ -20,7 +20,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("jsonpath flatten test")
+TEST_CASE("jsonpath flatten nlhomann_json")
 {
     json input = json::parse(R"(
     {
@@ -75,7 +75,7 @@ TEST_CASE("jsonpath flatten test")
     }
 }
 
-TEST_CASE("jsonpath flatten array test")
+TEST_CASE("jsonpath flatten array nlhomann_json")
 {
     json input = json::parse(R"([1,2,3,"4\u0027s"])");
 
@@ -91,7 +91,7 @@ TEST_CASE("jsonpath flatten array test")
 
 }
 
-TEST_CASE("jsonpath flatten with single quote test")
+TEST_CASE("jsonpath flatten with single quote nlhomann_json")
 {
     json input = json::parse(R"(
     {

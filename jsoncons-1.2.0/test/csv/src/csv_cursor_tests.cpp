@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons/json_encoder.hpp>
@@ -19,11 +19,11 @@
 
 using namespace jsoncons;
 
-TEST_CASE("csv_cursor eof test")
+TEST_CASE("csv_cursor eof nlhomann_json")
 {
     const std::string data = "";
 
-    SECTION("csv::csv_mapping_kind::n_rows eof test")
+    SECTION("csv::csv_mapping_kind::n_rows eof nlhomann_json")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -34,7 +34,7 @@ TEST_CASE("csv_cursor eof test")
     }
 }
 
-TEST_CASE("csv_cursor n_rows test")
+TEST_CASE("csv_cursor n_rows nlhomann_json")
 {
     const std::string data = R"(index_id,observation_date,rate
 EUR_LIBOR_06M,2015-10-23,0.0000214
@@ -42,7 +42,7 @@ EUR_LIBOR_06M,2015-10-26,0.0000143
 EUR_LIBOR_06M,2015-10-27,0.0000001
 )";
 
-    SECTION("n_rows test")
+    SECTION("n_rows nlhomann_json")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -107,7 +107,7 @@ EUR_LIBOR_06M,2015-10-27,0.0000001
         cursor.next();
         CHECK(cursor.done());
     }
-    SECTION("m_columns test")
+    SECTION("m_columns nlhomann_json")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -164,7 +164,7 @@ EUR_LIBOR_06M,2015-10-27,0.0000001
     }
 }
 
-TEST_CASE("csv_cursor n_rows with quotes test")
+TEST_CASE("csv_cursor n_rows with quotes nlhomann_json")
 {
     const std::string data = R"("index_id","observation_date","rate"
 EUR_LIBOR_06M,2015-10-23,0.0000214
@@ -172,7 +172,7 @@ EUR_LIBOR_06M,2015-10-26,0.0000143
 EUR_LIBOR_06M,2015-10-27,0.0000001
 )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -280,7 +280,7 @@ EUR_LIBOR_06M,2015-10-27,0.0000001
     }
 }
 
-TEST_CASE("csv_cursor n_objects test")
+TEST_CASE("csv_cursor n_objects nlhomann_json")
 {
     const std::string data = R"(index_id,observation_date,rate
 EUR_LIBOR_06M,2015-10-23,0.0000214
@@ -288,7 +288,7 @@ EUR_LIBOR_06M,2015-10-26,0.0000143
 EUR_LIBOR_06M,2015-10-27,0.0000001
 )";
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -410,7 +410,7 @@ EUR_LIBOR_06M,2015-10-27,0.0000001
     }
 }
 
-TEST_CASE("csv_cursor n_objects subfields test")
+TEST_CASE("csv_cursor n_objects subfields nlhomann_json")
 {
     const std::string data = R"(calculationPeriodCenters,paymentCenters,resetCenters
 NY;LON,TOR,LON
@@ -419,7 +419,7 @@ NY,LON,TOR;LON
 "NY","LON","TOR";"LON"
 )";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -605,11 +605,11 @@ NY,LON,TOR;LON
     }
 }
 
-TEST_CASE("csv_cursor n_rows, no header test")
+TEST_CASE("csv_cursor n_rows, no header nlhomann_json")
 {
     std::string data = "\"b\"";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto options = csv::csv_options{}
             .mapping_kind(csv::csv_mapping_kind::n_rows)
@@ -633,11 +633,11 @@ TEST_CASE("csv_cursor n_rows, no header test")
     }
 }
 
-TEST_CASE("csv_cursor n_objects, header test")
+TEST_CASE("csv_cursor n_objects, header nlhomann_json")
 {
     std::string data = "a\n\"4\"";
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         auto options = csv::csv_options{}
             .assume_header(true);
@@ -665,11 +665,11 @@ TEST_CASE("csv_cursor n_objects, header test")
     }
 }
 
-TEST_CASE("csv_cursor header, subfield no terminating new line test")
+TEST_CASE("csv_cursor header, subfield no terminating new line nlhomann_json")
 {
     std::string data = "a\n4;-5";
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -705,7 +705,7 @@ TEST_CASE("csv_cursor header, subfield no terminating new line test")
         CHECK(cursor.done());
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         auto options = csv::csv_options{}
             .assume_header(true)
@@ -953,7 +953,7 @@ void check_csv_cursor_table(std::string info, CursorType& cursor,
     CHECK(cursor.done());
 }
 
-TEMPLATE_TEST_CASE("csv_cursor reset test", "",
+TEMPLATE_TEST_CASE("csv_cursor reset nlhomann_json", "",
                    (std::pair<csv::csv_string_cursor, std::string>),
                    (std::pair<csv::csv_stream_cursor, std::istringstream>))
 {

@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons_ext/msgpack/msgpack.hpp>
@@ -153,7 +153,7 @@ TEST_CASE("msgpack_test2")
     //CHECK(j2 == j1);
 }
 
-// Includes test cases from https://github.com/kawanet/msgpack-test-suite, MIT license
+// Includes nlhomann_json cases from https://github.com/kawanet/msgpack-test-suite, MIT license
 
 TEST_CASE("msgpack bin tests")
 {
@@ -402,7 +402,7 @@ TEST_CASE("encode_msgpack overloads")
 #pragma GCC diagnostic ignored "-Wpedantic"
 TEST_CASE("msgpack json constructor __int64 tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j1("-18446744073709551617", semantic_tag::bigint);
 
@@ -420,7 +420,7 @@ TEST_CASE("msgpack json constructor __int64 tests")
 }
 TEST_CASE("msgpack json constructor unsigned __int64 tests")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j1("18446744073709551616", semantic_tag::bigint);
 

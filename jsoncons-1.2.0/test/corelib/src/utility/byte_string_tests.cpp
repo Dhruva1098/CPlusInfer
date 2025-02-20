@@ -14,7 +14,7 @@
 
 using namespace jsoncons;
 
-// https://tools.ietf.org/html/rfc4648#section-4 test vectors
+// https://tools.ietf.org/html/rfc4648#section-4 nlhomann_json vectors
 
 template <typename CharT>
 void check_encode_base64(const std::vector<uint8_t>& input, const std::basic_string<CharT>& expected)
@@ -151,7 +151,7 @@ TEST_CASE("test_base16_conversion")
 
 TEST_CASE("byte_string_view constructors")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::vector<uint8_t> v = {'f','o','o','b','a','r'};
         byte_string_view bstr(v);

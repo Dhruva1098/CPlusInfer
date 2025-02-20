@@ -234,7 +234,7 @@ TEST_CASE("test_positive_integer_overflow")
     CHECK(s2 == j2.as<std::string>());
 }
 
-TEST_CASE("test json_parser errors")
+TEST_CASE("nlhomann_json json_parser errors")
 {
     SECTION("empty string")
     {

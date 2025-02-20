@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 
 #include <jsoncons/json_encoder.hpp>
@@ -18,7 +18,7 @@
 
 using namespace jsoncons;
 
-TEST_CASE("msgpack_event_reader reputon test")
+TEST_CASE("msgpack_event_reader reputon nlhomann_json")
 {
     ojson j = ojson::parse(R"(
     {
@@ -37,7 +37,7 @@ TEST_CASE("msgpack_event_reader reputon test")
     std::vector<uint8_t> data;
     msgpack::encode_msgpack(j, data);
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         msgpack::msgpack_event_reader<bytes_source> reader(data);
 
@@ -102,7 +102,7 @@ struct msgpack_stream_cursor2_reset_test_traits
     }
 };
 
-TEMPLATE_TEST_CASE("msgpack_event_reader reset test", "",
+TEMPLATE_TEST_CASE("msgpack_event_reader reset nlhomann_json", "",
                    msgpack_bytes_cursor2_reset_test_traits,
                    msgpack_stream_cursor2_reset_test_traits)
 {

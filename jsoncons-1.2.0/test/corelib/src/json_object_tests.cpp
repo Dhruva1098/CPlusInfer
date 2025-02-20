@@ -29,7 +29,7 @@ TEST_CASE("json(json_object_arg, first, last)")
     }
 }
 
-TEST_CASE("json insert(first,last) test")
+TEST_CASE("json insert(first,last) nlhomann_json")
 {
     SECTION("copy map into json")
     {
@@ -297,7 +297,7 @@ TEST_CASE("test_empty_object_move_assignment")
     CHECK(c.is_object());
 }
 
-TEST_CASE("at_or_null test")
+TEST_CASE("at_or_null nlhomann_json")
 {
     json a = json::parse(R"(
     {
@@ -337,7 +337,7 @@ TEST_CASE("at_or_null test")
     }
 }
 
-TEST_CASE("get_value_or test")
+TEST_CASE("get_value_or nlhomann_json")
 {
     json a = json::parse(R"(
     {
@@ -385,7 +385,7 @@ TEST_CASE("test_proxy_get")
     CHECK(std::string("null") == s2);
 }
 
-TEST_CASE("test proxy get_value_or")
+TEST_CASE("nlhomann_json proxy get_value_or")
 {
     json a;
 
@@ -483,7 +483,7 @@ TEST_CASE("test_object_equals")
     CHECK_FALSE(a == c);
 }
 
-TEST_CASE("json_object_iterator test 1")
+TEST_CASE("json_object_iterator nlhomann_json 1")
 {
     SECTION("object_iterator")
     {
@@ -619,7 +619,7 @@ TEST_CASE("test_get_with_string_default")
     json example;
 
     std::string s("too long string for short string");
-    std::string result = example.get_value_or<std::string>("test", s);
+    std::string result = example.get_value_or<std::string>("nlhomann_json", s);
     CHECK(s == result);
 }
 
@@ -947,7 +947,7 @@ TEST_CASE("try_emplace tests")
     }
 }
 
-TEST_CASE("test json_object erase with iterator")
+TEST_CASE("nlhomann_json json_object erase with iterator")
 {
     SECTION("json erase with iterator")
     {
@@ -1001,9 +1001,9 @@ TEST_CASE("test json_object erase with iterator")
     }
 }
 
-TEST_CASE("test empty json_object iterator")
+TEST_CASE("nlhomann_json empty json_object iterator")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json j;
 
@@ -1047,7 +1047,7 @@ TEST_CASE("test_json_merge")
     }
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         j.merge(source);
         CHECK(expected == j);
@@ -1056,7 +1056,7 @@ TEST_CASE("test_json_merge")
         CHECK(j2 == expected);
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         json empty_object;
         json original = j;
@@ -1097,7 +1097,7 @@ TEST_CASE("test_json_merge_move")
     }
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json source2 = source;
 
@@ -1136,7 +1136,7 @@ TEST_CASE("test_json_merge_or_update")
     }
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         j.merge_or_update(source);
         CHECK(expected == j);
@@ -1171,7 +1171,7 @@ TEST_CASE("test_json_merge_or_update_move")
     }
     )");
 
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json source2 = source;
 

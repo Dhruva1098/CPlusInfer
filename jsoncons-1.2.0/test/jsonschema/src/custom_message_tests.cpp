@@ -56,7 +56,7 @@ TEST_CASE("jsonschema custom message tests")
     auto schema = jsoncons::json::parse(schema_str);    
     auto compiled = jsonschema::make_json_schema<jsoncons::json>(schema, options); 
     
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string data_str = R"(
 {
@@ -82,7 +82,7 @@ TEST_CASE("jsonschema custom message tests")
         CHECK("Only numbers are allowed in 'foo'" == messages[2]);
     }
 
-    SECTION("test 2")
+    SECTION("nlhomann_json 2")
     {
         std::string data_str = R"(
 {
@@ -105,7 +105,7 @@ TEST_CASE("jsonschema custom message tests")
         CHECK("Only numbers are allowed in 'foo'" == messages[0]);
     }
 
-    SECTION("test 3")
+    SECTION("nlhomann_json 3")
     {
         std::string data_str = R"(
 {
@@ -129,7 +129,7 @@ TEST_CASE("jsonschema custom message tests")
         CHECK("Only numbers are allowed in 'foo'" == messages[1]);
     }
 
-    SECTION("test 4")
+    SECTION("nlhomann_json 4")
     {
         std::string data_str = R"(
 {
@@ -184,7 +184,7 @@ TEST_CASE("jsonschema custom message with format keyword")
     auto schema = jsoncons::json::parse(schema_str);    
     auto compiled = jsonschema::make_json_schema<jsoncons::json>(schema, options); 
     
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string data_str = R"(
 {

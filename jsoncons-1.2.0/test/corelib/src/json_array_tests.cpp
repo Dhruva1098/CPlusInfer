@@ -216,7 +216,7 @@ TEST_CASE("test_reserve_array_capacity")
     CHECK(cities.size() == 3);
 }
 
-TEST_CASE("test make_array()")
+TEST_CASE("nlhomann_json make_array()")
 {
     json doc = json::make_array();
     CHECK(doc.is_array());
@@ -462,7 +462,7 @@ TEST_CASE("test_array_as_vector_of_int_on_proxy")
     CHECK(v[3]==3);
 }
 
-TEST_CASE("test json_array erase with iterator")
+TEST_CASE("nlhomann_json json_array erase with iterator")
 {
     SECTION("json erase with iterator")
     {

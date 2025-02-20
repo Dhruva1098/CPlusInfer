@@ -123,7 +123,7 @@ TEST_CASE("basic_json object == basic_json object")
 
 TEST_CASE("basic_json == basic_json")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         json o1;
         o1["a"] = 1;
@@ -364,7 +364,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(o["a"] <= o.at("b")); // proxy and value
         CHECK_FALSE(o["a"] <= o["b"]); // proxy and proxy
     }
-    SECTION("signed signed test")
+    SECTION("signed signed nlhomann_json")
     {
         auto a = std::numeric_limits<int64_t>::max();
         auto b = std::numeric_limits<int64_t>::lowest();
@@ -382,7 +382,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("unsigned signed test")
+    SECTION("unsigned signed nlhomann_json")
     {
         json a = std::numeric_limits<uint64_t>::max();
         json b = std::numeric_limits<int64_t>::lowest();
@@ -400,7 +400,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("signed unsigned test")
+    SECTION("signed unsigned nlhomann_json")
     {
         json a = std::numeric_limits<int64_t>::max();
         json b = std::numeric_limits<uint64_t>::lowest();
@@ -418,7 +418,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("double double test")
+    SECTION("double double nlhomann_json")
     {
         json a = std::numeric_limits<double>::max();
         json b = std::numeric_limits<double>::lowest();
@@ -436,7 +436,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("signed double test")
+    SECTION("signed double nlhomann_json")
     {
         json a = std::numeric_limits<int64_t>::max();
         json b = std::numeric_limits<double>::lowest();
@@ -454,7 +454,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("double signed test")
+    SECTION("double signed nlhomann_json")
     {
         json a = std::numeric_limits<double>::max();
         json b = std::numeric_limits<int64_t>::lowest();
@@ -472,7 +472,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("unsigned double test")
+    SECTION("unsigned double nlhomann_json")
     {
         json a = std::numeric_limits<uint64_t>::max();
         json b = std::numeric_limits<double>::lowest();
@@ -490,7 +490,7 @@ TEST_CASE("basic_json number compare")
         CHECK_FALSE(b > a); // value and value
         CHECK_FALSE(b >= a); // value and value
     }
-    SECTION("double unsigned test")
+    SECTION("double unsigned nlhomann_json")
     {
         json a = std::numeric_limits<double>::max();
         json b = std::numeric_limits<uint64_t>::lowest();

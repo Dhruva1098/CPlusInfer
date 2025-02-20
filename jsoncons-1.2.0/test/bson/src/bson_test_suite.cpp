@@ -32,7 +32,7 @@ namespace
 
 // Test data is from https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson
 
-TEST_CASE("bson c test suite")
+TEST_CASE("bson c nlhomann_json suite")
 {
     SECTION("utf8")
     {

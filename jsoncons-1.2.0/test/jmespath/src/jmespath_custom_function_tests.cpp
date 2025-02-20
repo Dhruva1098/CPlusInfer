@@ -2,7 +2,7 @@
 // Distributed under Boost license
 
 #if defined(_MSC_VER)
-#include "windows.h" // test no inadvertant macro expansions
+#include "windows.h" // nlhomann_json no inadvertant macro expansions
 #endif
 #include <jsoncons/json.hpp>
 #include <jsoncons_ext/jmespath/jmespath.hpp>
@@ -160,9 +160,9 @@ thread_local size_t my_custom_functions<Json>::current_index = 0;
 
 using json = jsoncons::json;
 
-TEST_CASE("jmespath custom function test")
+TEST_CASE("jmespath custom function nlhomann_json")
 {
-    SECTION("test 1")
+    SECTION("nlhomann_json 1")
     {
         std::string jtext = R"(
               {
