@@ -146,10 +146,39 @@ Tensor<T> Tensor<T>::operator/(const Tensor<T>& other) const {
   return result;
 }
 
+
 //function to do matrix multiplication
 // WE NEED TO FETCH DIMENSION AND CHECK IF SAME COL! AND ROW 2
 
 // great comment lol, this will stay
+
+//operator overloading for the scalar calculations
+template <typename T>
+Tensor<T> Tensor<T>::operator+(int x) const {
+  Tensor<T> result(shape_);
+  for (size_t i = 0; i < data_.size(); i++) {
+    result.data_[i] = this->data_[i] + x;
+  }
+  return result;
+}
+template <typename T>
+Tensor<T> Tensor<T>::operator-(int x) const {
+  Tensor<T> result(shape_);
+  for (size_t i = 0; i < data_.size(); i++) {
+    result.data_[i] = this->data_[i] - x;
+  }
+  return result;
+}
+template <typename T>
+Tensor<T> Tensor<T>::operator*(int x) const {
+  Tensor<T> result(shape_);
+  for (size_t i = 0; i < data_.size(); i++) {
+    result.data_[i] = this->data_[i] * x;
+  }
+  return result;
+}
+
+
 
 template <typename T>
 Tensor<T> Tensor<T>::reLU() const {

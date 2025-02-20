@@ -66,6 +66,20 @@ int main() {
     std::cout << "t11 (t2 / t7):" << std::endl;
     t11.print();
 
+    //Test operator overloading for scalar
+    Tensor<int> t18=t7+3;
+    std::cout << "t18 (t7+3):" << std::endl;
+    t18.print();
+
+    Tensor<int> t19=t7-3;
+    std::cout << "t18 (t7-3):" << std::endl;
+    t19.print();
+
+    Tensor<int> t20=t7*0;
+    std::cout << "t18 (t7*0):" << std::endl;
+    t20.print();
+    return 0;
+
     // Test ReLU
     Tensor<int> t12({2, 2}, -1);
     t12({0,0}) = -5;
@@ -107,5 +121,7 @@ int main() {
     Tensor<int> t17 = t16.transpose();
     std::cout << "t17 (Transpose of t16):" << std::endl;
     t17.print();
-    return 0;
+
+
+
 }
