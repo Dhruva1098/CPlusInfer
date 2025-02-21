@@ -58,7 +58,7 @@ ModelConfig parseModelConfig(const std::string& filename) {
     file >> modelData;
 
     ModelConfig model;
-    model.modelName = modelData["config"]["name"];
+    model.modelName = modelData["config"]["name"]; //take the name from conig section
 
     // Parse layers
     auto layersJson = modelData["config"]["layers"];

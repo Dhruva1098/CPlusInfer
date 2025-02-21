@@ -154,7 +154,7 @@ Tensor<T> Tensor<T>::operator/(const Tensor<T>& other) const {
 
 //operator overloading for the scalar calculations
 template <typename T>
-Tensor<T> Tensor<T>::operator+(int x) const {
+Tensor<T> Tensor<T>::operator+(float x) const {
   Tensor<T> result(shape_);
   for (size_t i = 0; i < data_.size(); i++) {
     result.data_[i] = this->data_[i] + x;
@@ -162,7 +162,7 @@ Tensor<T> Tensor<T>::operator+(int x) const {
   return result;
 }
 template <typename T>
-Tensor<T> Tensor<T>::operator-(int x) const {
+Tensor<T> Tensor<T>::operator-(float x) const {
   Tensor<T> result(shape_);
   for (size_t i = 0; i < data_.size(); i++) {
     result.data_[i] = this->data_[i] - x;
@@ -170,7 +170,7 @@ Tensor<T> Tensor<T>::operator-(int x) const {
   return result;
 }
 template <typename T>
-Tensor<T> Tensor<T>::operator*(int x) const {
+Tensor<T> Tensor<T>::operator*(float x) const {
   Tensor<T> result(shape_);
   for (size_t i = 0; i < data_.size(); i++) {
     result.data_[i] = this->data_[i] * x;
