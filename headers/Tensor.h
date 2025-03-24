@@ -13,6 +13,7 @@ class Tensor {
 public:
 
     // Constructors
+    Tensor() = default;
     explicit Tensor(const std::vector<size_t>& shape);  // Tensor t1({1,1,1}) // all garbage values
     Tensor(const std::vector<size_t>& shape, T initialValue);  // Tensor t1({1,1,1}, 40})
     Tensor(const Tensor& other);

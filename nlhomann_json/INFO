@@ -1,9 +1,0 @@
-MAIN file is to check the data storage and structure.
-test file is jsut basic reading of json data.
-
-//To run the code
-1) c++ main.cpp -I$(brew --prefix nlohmann-json)/include -std=c++11 -o main
-2) ./main
-
-
-Everything is just scattered and vague. I will see more on it.

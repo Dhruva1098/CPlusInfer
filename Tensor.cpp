@@ -3,6 +3,10 @@
 #include <iomanip>
 
 // Constructors
+
+template <typename T>
+Tensor<T>::Tensor() = default;
+
 template <typename T>
 Tensor<T>::Tensor(const std::vector<size_t>& shape)
     :shape_( shape), data_(std::accumulate(shape.begin(), shape.end(), 1, std::multiplies<size_t>())) {}
