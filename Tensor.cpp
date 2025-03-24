@@ -313,3 +313,5 @@ void Tensor<T>::print() const {
     }
     std::cout << std::endl;
 }
+
+template class Tensor<float>;

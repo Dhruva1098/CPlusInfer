@@ -45,9 +45,9 @@ public:
     Tensor operator/(const Tensor& other) const;
 
     //op overloading for scalar value
-    Tensor operator+(int x) const;
-    Tensor operator-(int x) const;
-    Tensor operator*(int x) const;
+    Tensor operator+(float x) const;
+    Tensor operator-(float x) const;
+    Tensor operator*(float x) const;
 
     // ReLU
     Tensor reLU() const;
