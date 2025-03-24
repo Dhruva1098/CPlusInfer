@@ -266,7 +266,7 @@ void Tensor<T>::print() const {
     if (shape_.size() == 1) { // 1D Tensor
         std::cout << "[";
         for (size_t i = 0; i < data_.size(); ++i) {
-            std::cout << std::fixed << std::setprecision(2) << std::setw(8) << data_[i]; // Format output
+            std::cout << std::fixed << std::setprecision(8) << std::setw(8) << data_[i]; // Format output
             if (i < data_.size() - 1) {
                 std::cout << ",";
             }
@@ -276,7 +276,7 @@ void Tensor<T>::print() const {
         for (size_t i = 0; i < shape_[0]; ++i) {
             std::cout << "[";
             for (size_t j = 0; j < shape_[1]; ++j) {
-                std::cout << std::fixed << std::setprecision(2) << std::setw(8) << (*this)({i, j});
+                std::cout << std::fixed << std::setprecision(8) << std::setw(8) << (*this)({i, j});
                 if (j < shape_[1] - 1) {
                     std::cout << ",";
                 }
@@ -289,7 +289,7 @@ void Tensor<T>::print() const {
             for (size_t j = 0; j < shape_[1]; ++j) {
                 std::cout << " ["; // Start of 'row'
                 for (size_t k = 0; k < shape_[2]; ++k) {
-                    std::cout << std::fixed << std::setprecision(2) << std::setw(8) << (*this)({i, j, k});
+                    std::cout << std::fixed << std::setprecision(8) << std::setw(8) << (*this)({i, j, k});
                     if (k < shape_[2] - 1) {
                         std::cout << ",";
                     }
@@ -304,7 +304,7 @@ void Tensor<T>::print() const {
         std::cout << "Printing for tensors with dimensions > 3 is not yet prettily formatted." << std::endl;
         std::cout << "[";
         for (size_t i = 0; i < data_.size(); ++i) {
-            std::cout << std::fixed << std::setprecision(2) << std::setw(8) << data_[i];
+            std::cout << std::fixed << std::setprecision(8) << std::setw(8) << data_[i];
             if (i < data_.size() - 1) {
                 std::cout << ",";
             }

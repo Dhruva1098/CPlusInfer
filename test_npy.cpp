@@ -86,25 +86,44 @@ public:
         if (std::regex_search(header, shape_match, shape_regex) && shape_match.size() > 1) {
             std::string shape_str = shape_match[1];
             
+            // Add debug output
+            std::cout << "DEBUG: Raw shape string: '" << shape_str << "'" << std::endl;
+            
             // Split by comma
             std::stringstream ss(shape_str);
             std::string item;
             
             while (std::getline(ss, item, ',')) {
                 // Remove whitespace
-                item.erase(0, item.find_first_not_of(" "));
-                item.erase(item.find_last_not_of(" ") + 1);
+                item.erase(0, item.find_first_not_of(" \t\r\n"));
+                item.erase(item.find_last_not_of(" \t\r\n") + 1);
                 
                 if (!item.empty()) {
-                    shape.push_back(std::stoul(item));
+                    try {
+                        size_t dim = std::stoul(item);
+                        shape.push_back(dim);
+                        std::cout << "DEBUG: Added dimension: " << dim << std::endl;
+                    } catch (const std::exception& e) {
+                        std::cerr << "ERROR: Failed to parse dimension '" << item << "': " << e.what() << std::endl;
+                    }
                 }
             }
             
             // Special case: empty tuple means scalar
             if (shape.empty() && shape_str.find_first_not_of(" ,") == std::string::npos) {
                 shape.push_back(1);
+                std::cout << "DEBUG: Empty tuple, treating as scalar (1)" << std::endl;
             }
+        } else {
+            std::cerr << "ERROR: Failed to find shape in header" << std::endl;
         }
+        
+        std::cout << "DEBUG: Final shape: [";
+        for (size_t i = 0; i < shape.size(); i++) {
+            std::cout << shape[i];
+            if (i < shape.size() - 1) std::cout << ", ";
+        }
+        std::cout << "]" << std::endl;
         
         return shape;
     }
@@ -200,6 +219,19 @@ Tensor<T> load_npy(const std::string& filename) {
         }
     }
     
+    std::cout << "INFO: Loading NPY with shape: [";
+    for (size_t i = 0; i < shape.size(); i++) {
+        std::cout << shape[i];
+        if (i < shape.size() - 1) std::cout << ", ";
+    }
+    std::cout << "]" << std::endl;
+    
+    // Calculate total elements that SHOULD be in the file
+    size_t expected_elements = 1;
+    for (size_t dim : shape) {
+        expected_elements *= dim;
+    }
+    
     // Validate data type
     std::string dtype = metadata["dtype"];
     char type_char = NPYParser::get_type_char(dtype);
@@ -213,7 +245,6 @@ Tensor<T> load_npy(const std::string& filename) {
     } else if (type_char == 'f' && item_size == 8 && std::is_same<T, double>::value) {
         type_compatible = true;
     } else if (type_char == 'i' && std::is_integral<T>::value) {
-        // We could add more precise size checking here
         type_compatible = true;
     } else if (type_char == 'u' && std::is_unsigned<T>::value) {
         type_compatible = true;
@@ -223,23 +254,26 @@ Tensor<T> load_npy(const std::string& filename) {
         throw std::runtime_error("Incompatible data type in NPY file: " + dtype);
     }
     
-    // Calculate total elements
-    size_t total_elements = NPYParser::calculate_elements(shape);
-    
     // Read the data
-    std::vector<T> data(total_elements);
-    file.read(reinterpret_cast<char*>(data.data()), total_elements * sizeof(T));
+    std::vector<T> data(expected_elements);
+    file.read(reinterpret_cast<char*>(data.data()), expected_elements * sizeof(T));
+    
+    // Check if we actually read the expected amount of data
+    if (file.gcount() != expected_elements * sizeof(T)) {
+        std::cerr << "WARNING: Read " << file.gcount() << " bytes, expected " 
+                  << expected_elements * sizeof(T) << " bytes" << std::endl;
+    }
     
     // Check if we need to convert endianness
     if (NPYParser::needs_byteswap(dtype)) {
-        NPYParser::byteswap(data.data(), total_elements);
+        NPYParser::byteswap(data.data(), expected_elements);
     }
     
     // Create tensor with correct shape
     Tensor<T> tensor(shape);
     
     // Fill tensor with data
-    for (size_t i = 0; i < total_elements; i++) {
+    for (size_t i = 0; i < expected_elements && i < data.size(); i++) {
         tensor[i] = data[i];
     }
     
