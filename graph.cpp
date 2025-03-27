@@ -61,7 +61,22 @@ Graph Graph::loadFromJSON(const std::string &architecture_file, const std::strin
       
       // WILL DO THIS LATER I HAVE TO START FROM
       // CREATING LAYERS
-    std::cout << "Creating Layer: " << layer_name << " (Type: " << layer_type << ")" << std::endl; 
+    std::cout << "Creating Layer: " << layer_name << " (Type: " << layer_type << ")" << std::endl;
+    if (layer_type == "Linear") {
+      const size_t in_features = layer["parameters"]["in_features"];
+      const size_t out_features = layer["parameters"]["out_features"];
+      
+      layer_obj = std::make_shared<LinearLayer>(layer_name, in_features, out_features);
     }
+    else if (layer_type == "ReLU") {
+      layer_obj = std::make_shared<ReLULayer>(layer_name);
+    }
+  // Add more layer types as needed
+  
+  if (layer_obj) {
+      layer_map[layer_name] = layer_obj;
+      graph.addLayer(layer_obj);
   }
 }
+  
+
