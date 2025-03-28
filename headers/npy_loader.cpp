@@ -58,7 +58,35 @@ Tensor<T> load_npy(const std::string &filename) {
     throw std::runtime_error("Incompatible data type in NPY files " + dtype);
   }
 
+  // Read data if compatible
+  std::vector<T> data(expected_elements);
+  file.read(reinterpret_cast<char*>(data.data()),expected_elements * sizeof(T));
+  
+  // check if we actyally read data we are suposed to 
+  if (file.gcount() != expected_elements * sizeof(T)) {
+    std::cerr << "WARNING : read " << file.gcount() << " bytes, expected "
+      << expected_elements*sizeof(T) << " bytes" << std::endl;
+  }
+
+  // check for endianess
+  if(NPYParser::needs_byteswap(dtype)) {
+    NPYParser::byteswap(data.data(), expected_elements);
+  }
+
+  // now create a tensor with right shape
+  Tensor<T> tensor(shape);
+  for(size_t i = 0; i < expected_elements && i < data.size(); i++){
+    tensor[i] = data[i];
+  }
+
+  // id array was stored in fortran order for god knows why, transpose it
+  if(metadata["fortran_order"] == "true" && shape.size() > 1){
+    tensor = tensor.transpose();
+  }
+
+  return tensor;
 }
+
 
 
 
