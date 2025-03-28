@@ -40,6 +40,6 @@ template <typename T>
 void save_npy(const Tensor<T>& tensor, const std::string& filename);
 
 //rempove below comment later
- // #include "npy_loader.tpp"
+#include "npy_loader.tpp"
 
 #endif  // HEADERS_NPY_LOADER_H_
