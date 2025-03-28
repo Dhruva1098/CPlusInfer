@@ -1,0 +1,4 @@
+#ifndef HEADERS_NPY_LOADER_H_
+#define HEADERS_NPY_LOADER_H_
+
+#endif  // HEADERS_NPY_LOADER_H_
