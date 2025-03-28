@@ -87,10 +87,99 @@ Tensor<T> load_npy(const std::string &filename) {
   return tensor;
 }
 
+// implement save_npy
+template <typename T>
+void save_npy(const Tensor<T>& tensor, const std::string& filename) {
+  std::ofstream file(filename, std::ios::binary);
+  if(!file) {
+    throw std::runtime_error("Failed ot open file for writing" + filename);
+  }
 
+  // write magic string, vetsion etc.
+  file.write("\x93NUMPY", 6);
+  //ver 1.0
+  file.write("\x01\x00", 2);
 
+  // construct header
+  std::stringstream header_ss;
+  header_ss << "{'descr: '}";
 
+  // endianess and type
+#if defined(__LITTLE_ENDIAN__) || (defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __LITTLE_ENDIAN__)
+  header_ss << "<";
+#else
+  header_ss << ">";
+#endif
+  
+  // type code and size
+  if (std::is_same<T,float>::value) {
+    header_ss << "f4";
+  } else if (std::is_same<T, double>::value) {
+    header_ss << "f8";
+  } else if (std::is_same<T, int8_t>::value) {
+    header_ss << "i1";
+  } else if (std::is_same<T, int16_t>::value) {
+    header_ss << "i2";
+  } else if (std::is_same<T, int32_t>::value) {
+    header_ss << "i4";
+  } else if (std::is_same<T, int64_t>::value) {
+    header_ss << "i8";
+  } else if (std::is_same<T, uint8_t>::value) {
+    header_ss << "u1";
+  } else if (std::is_same<T, uint16_t>::value) {
+    header_ss << "u2";
+  } else if (std::is_same<T, uint32_t>::value) {
+    header_ss << "u4";
+  } else if (std::is_same<T, uint64_t>::value) {
+    header_ss << "u8";
+  } else {
+    throw std::runtime_error("Unsupported data type for NPY export");
+  }
 
+  // shape information
+  header_ss << " ', 'fortran_order': False, 'shape' : (";
 
+  const std::vector<size_t>& shape = tensor.shape();
+  for(size_t i = 0; i < shape.size(); i++){
+    header_ss << shape[i];
+    if (i < shape.size() -1) {
+      header_ss << ", ";
+    }
+  }
+
+  header_ss << "),}";
+
+  // pad header with spaces to ensore it is properly aligned
+  std::string header = header_ss.str();
+  while((header.size() + 10) % 16 != 0) {
+    header += ' ';
+  }
+  header += '\n';
+
+  // write header length LE
+  uint16_t header_len = static_cast<uint16_t>(header.size());
+  file.write(reinterpret_cast<char*>(&header_len), 2);
+
+  // writing header
+  file.write(header.c_str(), header.size());
+
+  // write data
+  size_t size = tensor.size();
+  for (size_t i = 0; i < size; i++) {
+    T value = tensor[i];
+    file.write(reinterpret_cast<const char*>(&value), sizeof(T));
+  }
+}
+
+// template specialization for byteswap
+template <typename T>
+void NPYParser::byteswap(T* data, size_t elements) {
+  for(size_t i = 0; i < elements; i++) {
+    char* bytes = reinterpret_cast<char*>(&data[i]);
+    for (size_t j = 0; j < sizeof(T) / 2; j++) {
+      std::swap(bytes[j], bytes[sizeof(T) - 1 - j]);
+    }
+  }
+}
 
 #endif  // HEADERS_NPY_LOADER_TPP_
