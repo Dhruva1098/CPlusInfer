@@ -61,22 +61,55 @@ Graph Graph::loadFromJSON(const std::string &architecture_file, const std::strin
       
       // WILL DO THIS LATER I HAVE TO START FROM
       // CREATING LAYERS
-    std::cout << "Creating Layer: " << layer_name << " (Type: " << layer_type << ")" << std::endl;
-    if (layer_type == "Linear") {
-      const size_t in_features = layer["parameters"]["in_features"];
-      const size_t out_features = layer["parameters"]["out_features"];
+      std::cout << "Creating Layer: " << layer_name << " (Type: " << layer_type << ")" << std::endl;
+      if (layer_type == "Linear") {
+        const size_t in_features = layer["parameters"]["in_features"];
+        const size_t out_features = layer["parameters"]["out_features"];
       
-      layer_obj = std::make_shared<LinearLayer>(layer_name, in_features, out_features);
-    }
-    else if (layer_type == "ReLU") {
-      layer_obj = std::make_shared<ReLULayer>(layer_name);
-    }
-  // Add more layer types as needed
+        layer_obj = std::make_shared<LinearLayer>(layer_name, in_features, out_features);
+      }
+      else if (layer_type == "ReLU") {
+        layer_obj = std::make_shared<ReLULayer>(layer_name);
+      }
+      // Add more layer types as needed
   
-  if (layer_obj) {
+    if (layer_obj) {
       layer_map[layer_name] = layer_obj;
       graph.addLayer(layer_obj);
+    }
   }
+  // Second pass: load weights for application layers
+  for (const auto& [param_name, paran_info] : params_json.items()){
+    // parse layer name from parameter name
+    std::string layer_name = param_name.substr(0, param_name.find('.'));
+    std::string param_type = param_name.substr(param_name.find('.') + 1);
+
+    // Find corresponding layer
+    if (layer_map.find(layer_name) != layer_map.end()) {
+      auto layer = layer_map[layer_name];
+
+      // if it is a linear layer that needs weights/biases
+      if (auto linear_layer = std::dynamic_pointer_cast<LinearLayer>(layer)){
+        // LOad weights and biases
+        if (param_type == "weight") {
+          std::string weight_file = weights_dir + "/" + param_info["file_path"].get<std::string>();
+          std::string bias_file = weights_dir + "/" + params_json[layer_name + ".bias"]["file_path"].get<std::string>();
+          std::cout << "Loading weights for " << layer_name << " from " << weight_file << std::sndl;
+          std::cout << "Loading biases for " << layer_name << " from " << bias_file << std::endl;
+
+          // use our NPY parser to load weights
+          Tensor<float> weights = load_npy<float>(weight_file);
+          Tensor<float> biases = load_npy<float>(bias_file);
+
+          // set layer weights
+          linear_layer->loadWeights(weights, biases);
+        }
+      }
+    }
+  }
+} catch (const std::exception& e) {
+    std::cerr << "Error loading model: " << e.what() << std::endl;
+  }
+return graph;
 }
-  
 
