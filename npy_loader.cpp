@@ -36,7 +36,14 @@ std::map<std::string, std::string> NPYParser::parse_header(std::istream& file) {
   } else {
     throw std::runtime_error("Unsupported NPY version " + std::to_string(major_version));
   }
+  
+  // read header 
+  std::vector<char> header_buf(header_len);
+  file.read(header_buf.data(), header_len);
+  std::string header(header_buf.begin(), header_buf.end());
 
+  // store raw header
+  metadata["header"] = header;
 
 
 
