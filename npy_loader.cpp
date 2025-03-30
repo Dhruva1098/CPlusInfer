@@ -44,31 +44,57 @@ std::map<std::string, std::string> NPYParser::parse_header(std::istream& file) {
 
   // store raw header
   metadata["header"] = header;
+  
+  // parse shape
+  std::vector<size_t> shape = parse_shape(header);
+  std::stringstream shape_ss;
+  for(size_t i = 0; i < shape.size(); i++) {
+    shape_ss << shape[i];
+    if(i < shape.size()-1) shape_ss << ",";
+  }
+  metadata["shape"] = shape.ss.str();
 
+  // parse dtype
+  metadata["dtype"] = parse_dtype(header);
 
+  // parse fortran_order
+  metadata["fortran_order"] = parse_fortran_order(header) ? "true" : "false";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return metadata;
 }
+
+// helper
+std::vector<size_t> NPYParser::parse_shape(const std::String& header) {
+  std::vector<size_t> shape;
+  
+  // find the shape section in header, using regex for now
+  std::regex shape_regex(" 'shape':\\s*\\(([^\\])*)\\)");
+  std::smatch shape_match;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
